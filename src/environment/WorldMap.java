@@ -1,21 +1,39 @@
 package environment;
 import javadraw.*;
+import noise.NoiseGenerator;
 
 abstract class WorldMap {
 
-    private int width;
-    private int height;
-    private String lowPath;
-    private String medPath;
-    private String highPath;
+    protected int width;
+    protected int height;
+    protected double values[][];
+    private NoiseGenerator seed;
+    protected Screen screen;
+    protected int imageSize;
 
-    public WorldMap(int width, int height, String lowPath, String medPath, String highPath, Screen screen) {
+    public WorldMap(Screen screen, int width, int height, int imageSize) {
 
         this.width = width;
         this.height = height;
-        this.lowPath = lowPath;
-        this.medPath = medPath;
-        this.highPath = highPath;
+        this.values = new double[width][height];
+        this.seed = new NoiseGenerator();
+        this.screen = screen;
+        this.imageSize = imageSize;
+        this.generateNoise();
+
+    }
+
+    private void generateNoise() {
+
+        for (int i = 0; i < width; i++) {
+
+            for (int j = 0; j < height; j++) {
+
+                values[i][j] = seed.noise(i, j);
+
+            }
+
+        }
 
     }
 

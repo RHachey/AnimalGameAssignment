@@ -5,15 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="Added skeleton on WorldMap and IceMap as well as some assets">
-      <change afterPath="$PROJECT_DIR$/images/environment/iceHigh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/environment/iceLow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/environment/iceMed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/environment/IceMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/environment/WorldMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/maps/iceHigh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/maps/iceLow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/maps/iceMed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/noise/NoiseGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AnimalGameAssignment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalGameAssignment.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/environment/iceHigh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/environment/iceLow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/environment/iceMed.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environment/IceMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/environment/IceMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environment/WorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/environment/WorldMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +54,22 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\maps" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\environment" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="environment" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Always Main Animal Game" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="AnimalGameAssignment" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
