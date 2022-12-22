@@ -6,51 +6,51 @@ public class IceMap extends WorldMap {
     public IceMap (Screen screen, int width, int height, int imageSize) {
 
         super(screen, width, height, imageSize);
-        this.extraGeneration();
 
     }
 
     @Override
-    public void extraGeneration() {
+    public void render() {
 
-        double upper = 0;
-        double lower = 0;
+        for (int i = (int) this.topLeft.x(); i < this.screenWidth + this.topLeft.x(); i++) {
 
-        for (int i = 0; i < this.width; i++) {
+            for(int j = (int) this.topLeft.y(); j < this.screenHeight + this.topLeft.y(); j++) {
 
-            for (int j = 0; j < this.height; j++) {
+                double percent = (this.values[i][j] - this.lower) / this.range;
 
-                upper = Math.max(this.values[i][j], upper);
-                lower = Math.min(this.values[i][j], lower);
+                if (percent >= 0.6) {
+
+                    this.highImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].front();
+
+                } else if (percent >= 0.4) {
+
+                    this.medImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].front();
+
+                } else {
+
+                    this.lowImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].front();
+
+                }
 
             }
 
         }
 
-        double percent;
+    }
 
-        for (int i = 0; i < this.width; i++) {
+    @Override
+    public void generateImages() {
 
-            for (int j = 0; j < this.height; j++) {
+        for (int i = 0; i < this.screenWidth; i++) {
 
-                percent = (this.values[i][j] - lower) / (upper - lower);
+            for (int j = 0; j < this.screenHeight; j++) {
 
-                if (percent >= 0.7) {
-
-                    Image image = new Image(this.screen, "images/maps/iceHigh.png",
-                            i * imageSize, j * imageSize, imageSize, imageSize);
-
-                } else if (percent >= 0.3) {
-
-                    Image image = new Image(this.screen, "images/maps/iceMed.png",
-                            i * imageSize, j * imageSize, imageSize, imageSize);
-
-                } else {
-
-                    Image image = new Image(this.screen, "images/maps/iceLow.png",
-                            i * imageSize, j * imageSize, imageSize, imageSize);
-
-                }
+                lowImages[i][j] = new Image(this.screen, "images/maps/iceLow.png",
+                        this.imageSize * i, this.imageSize * j, this.imageSize, this.imageSize);
+                medImages[i][j] = new Image(this.screen, "images/maps/iceMed.png",
+                        this.imageSize * i, this.imageSize * j, this.imageSize, this.imageSize);
+                highImages[i][j] = new Image(this.screen, "images/maps/iceHigh.png",
+                        this.imageSize * i, this.imageSize * j, this.imageSize, this.imageSize);
 
             }
 
