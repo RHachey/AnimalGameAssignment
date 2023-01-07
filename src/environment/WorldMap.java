@@ -28,7 +28,7 @@ abstract class WorldMap {
         this.seed = new NoiseGenerator();
         this.screen = screen;
         this.imageSize = imageSize;
-        this.screenWidth = 800 / imageSize;
+        this.screenWidth = 832 / imageSize;
         this.screenHeight = 416 / imageSize;
         this.lowImages = new Image[this.screenWidth][this.screenHeight];
         this.medImages = new Image[this.screenWidth][this.screenHeight];
@@ -59,27 +59,35 @@ abstract class WorldMap {
 
     }
 
-    public void mapMove(Direction direction) {
+    public boolean mapMove(Direction direction) {
 
         if (direction == Direction.LEFT && this.topLeft.x() > 0) {
 
             this.topLeft.x(this.topLeft.x() - 1);
+            this.render();
+            return true;
 
         } else if (direction == Direction.RIGHT && this.topLeft.x() < this.width - this.screenWidth) {
 
             this.topLeft.x(this.topLeft.x() + 1);
+            this.render();
+            return true;
 
         } else if (direction == Direction.UP && this.topLeft.y() > 0) {
 
             this.topLeft.y(this.topLeft.y() - 1);
+            this.render();
+            return true;
 
         } else if (direction == Direction.DOWN && this.topLeft.y() < this.height - this.screenHeight) {
 
             this.topLeft.y(this.topLeft.y() + 1);
+            this.render();
+            return true;
 
         }
 
-        this.render();
+        return false;
 
     }
 

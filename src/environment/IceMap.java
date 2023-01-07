@@ -20,15 +20,18 @@ public class IceMap extends WorldMap {
 
                 if (percent >= 0.6) {
 
-                    this.highImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].front();
+                    this.lowImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
+                    this.medImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
 
                 } else if (percent >= 0.4) {
 
-                    this.medImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].front();
+                    this.lowImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
+                    this.highImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
 
                 } else {
 
-                    this.lowImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].front();
+                    this.highImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
+                    this.medImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
 
                 }
 

@@ -1,24 +1,34 @@
 import enums.Direction;
 import environment.IceMap;
 import javadraw.*;
+import player.*;
 
 public class Main extends Window {
 
     IceMap mapTest;
+    Player playerOne;
     boolean leftDown = false;
     boolean rightDown = false;
     boolean upDown = false;
     boolean downDown = false;
 
+    boolean inBattle = false;
+
     public void start() {
 
-        mapTest = new IceMap(screen,100, 100, 32);
+        mapTest = new IceMap(screen,200, 200, 32);
+        playerOne = new Player(screen, 32);
 
         while (true) {
 
-            movementHandler();
+            if (!inBattle) {
+
+                movementHandler();
+
+            }
+
             screen.update();
-            screen.sleep(1/60.0);
+            screen.sleep(1/10.0);
 
         }
 
@@ -26,29 +36,39 @@ public class Main extends Window {
 
     public void movementHandler() {
 
+        boolean hasMoved = false;
+
         if (leftDown) {
 
-            mapTest.mapMove(Direction.LEFT);
+            hasMoved = mapTest.mapMove(Direction.LEFT);
 
         }
 
         if (rightDown) {
 
-            mapTest.mapMove(Direction.RIGHT);
+            hasMoved = mapTest.mapMove(Direction.RIGHT);
 
         }
 
         if (upDown) {
 
-            mapTest.mapMove(Direction.UP);
+            hasMoved = mapTest.mapMove(Direction.UP);
 
         }
 
         if (downDown) {
 
-            mapTest.mapMove(Direction.DOWN);
+            hasMoved = mapTest.mapMove(Direction.DOWN);
 
         }
+
+        if (hasMoved && Math.random() * 20 < 1) {
+
+            inBattle = true;
+
+        }
+
+        System.out.println(inBattle);
 
     }
 
@@ -98,7 +118,7 @@ public class Main extends Window {
 
     public static void main(String[] args) {
 
-        Window.open(800,416,"test");
+        Window.open(832,416,"test");
 
     }
 
