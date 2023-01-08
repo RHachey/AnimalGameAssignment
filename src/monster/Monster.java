@@ -1,5 +1,6 @@
 package monster;
 import javadraw.*;
+import enums.*;
 
 public class Monster {
 
@@ -9,13 +10,18 @@ public class Monster {
     //fireAttack, waterAttack, poisonAttack, fireDefense, waterDefense, poisonDefense,
     // strength, finesse, speed, hp
     private int[] stats;
+    private Attack[] attacks;
+    private Defense[] defenses;
 
-    public Monster(Screen screen, Image sprite, int level, int[] stats) {
+    public Monster(Screen screen, Image sprite, int level,
+                   int[] stats, Attack[] attacks, Defense[] defenses) {
 
         this.screen = screen;
         this.sprite = sprite;
         this.level = level;
         this.stats = stats;
+        this.attacks = attacks;
+        this.defenses = defenses;
 
         for (int i = 0; i < 9; i++) {
 
