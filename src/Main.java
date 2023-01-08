@@ -1,7 +1,10 @@
 import enums.Direction;
+import enums.Environment;
 import environment.IceMap;
 import javadraw.*;
+import monster.PolarBear;
 import player.*;
+import battle.*;
 
 public class Main extends Window {
 
@@ -13,6 +16,7 @@ public class Main extends Window {
     boolean downDown = false;
 
     boolean inBattle = false;
+    Battle currentBattle;
 
     public void start() {
 
@@ -21,7 +25,11 @@ public class Main extends Window {
 
         while (true) {
 
-            if (!inBattle) {
+            if (inBattle) {
+
+
+
+            } else {
 
                 movementHandler();
 
@@ -31,6 +39,13 @@ public class Main extends Window {
             screen.sleep(1/10.0);
 
         }
+
+    }
+
+    public void startBattle() {
+
+        currentBattle = new Battle(new PolarBear(screen, 0),
+                new PolarBear(screen, 0), Environment.ICE);
 
     }
 
@@ -65,10 +80,9 @@ public class Main extends Window {
         if (hasMoved && Math.random() * 20 < 1) {
 
             inBattle = true;
+            startBattle();
 
         }
-
-        System.out.println(inBattle);
 
     }
 
