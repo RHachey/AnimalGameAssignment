@@ -2,7 +2,7 @@ package monster;
 import javadraw.*;
 import enums.*;
 
-public class PolarBear extends Monster {
+public class PolarBear extends WildMonster {
 
     public PolarBear(Screen screen, int level) {
 

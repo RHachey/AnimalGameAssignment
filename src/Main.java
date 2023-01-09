@@ -2,6 +2,7 @@ import enums.Direction;
 import enums.Environment;
 import environment.IceMap;
 import javadraw.*;
+import monster.PlayerMonster;
 import monster.PolarBear;
 import player.*;
 import battle.*;
@@ -44,8 +45,7 @@ public class Main extends Window {
 
     public void startBattle() {
 
-        currentBattle = new Battle(new PolarBear(screen, 0),
-                new PolarBear(screen, 0), Environment.ICE);
+        currentBattle = new Battle(new PlayerMonster(), new PolarBear(screen, 0), Environment.ICE);
 
     }
 

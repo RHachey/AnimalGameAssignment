@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="added polarbear and battle classes">
-      <change afterPath="$PROJECT_DIR$/src/enums/Defense.java" afterDir="false" />
+    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="added all of the attack moves and defense moves">
+      <change afterPath="$PROJECT_DIR$/src/Button.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/monster/PlayerMonster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/monster/WildMonster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/monster/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/monster/PolarBear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/PolarBear.java" afterDir="false" />
     </list>
@@ -104,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673209433030</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added all of the attack moves and defense moves">
+      <created>1673213128229</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673213128229</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -113,7 +123,8 @@
     <MESSAGE value="optimized the map movement" />
     <MESSAGE value="added a player sprite and started working on the battle mode" />
     <MESSAGE value="added polarbear and battle classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added polarbear and battle classes" />
+    <MESSAGE value="added all of the attack moves and defense moves" />
+    <option name="LAST_COMMIT_MESSAGE" value="added all of the attack moves and defense moves" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AnimalGameAssignment$Always_Main_Animal_Game.ic" NAME="Always Main Animal Game Coverage Results" MODIFIED="1673111489164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

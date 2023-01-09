@@ -4,11 +4,11 @@ import monster.*;
 
 public class Battle {
 
-    private Monster playerMonster;
-    private Monster cpuMonster;
+    private PlayerMonster playerMonster;
+    private WildMonster cpuMonster;
     private Environment environment;
 
-    public Battle (Monster playerMonster, Monster cpuMonster, Environment environment) {
+    public Battle (PlayerMonster playerMonster, WildMonster cpuMonster, Environment environment) {
 
         this.playerMonster = playerMonster;
         this.cpuMonster = cpuMonster;
