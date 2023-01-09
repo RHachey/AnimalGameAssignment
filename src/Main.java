@@ -45,7 +45,8 @@ public class Main extends Window {
 
     public void startBattle() {
 
-        currentBattle = new Battle(new PlayerMonster(), new PolarBear(screen, 0), Environment.ICE);
+        currentBattle = new Battle(screen, new PlayerMonster(), new PolarBear(screen, 0), Environment.ICE);
+        currentBattle.begin();
 
     }
 
