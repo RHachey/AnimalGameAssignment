@@ -9,9 +9,6 @@
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/environment/WorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/environment/WorldMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Pushbutton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Pushbutton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monster/WildMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/WildMonster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

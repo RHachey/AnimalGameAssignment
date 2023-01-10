@@ -91,6 +91,22 @@ abstract class WorldMap {
 
     }
 
+    public void visible(boolean visible) {
+
+        for(int i = 0; i < this.screenWidth; i++) {
+
+            for (int j = 0; j < this.screenHeight; j++) {
+
+                this.lowImages[i][j].visible(visible);
+                this.medImages[i][j].visible(visible);
+                this.highImages[i][j].visible(visible);
+
+            }
+
+        }
+
+    }
+
     public abstract void render();
 
     public abstract void generateImages();

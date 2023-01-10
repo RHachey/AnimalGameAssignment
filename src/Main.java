@@ -5,7 +5,6 @@ import javadraw.*;
 import monster.*;
 import player.*;
 import battle.*;
-import gui.*;
 
 public class Main extends Window {
 
@@ -46,6 +45,7 @@ public class Main extends Window {
 
     public void startBattle() {
 
+        mapTest.visible(false);
         currentBattle = new Battle(screen, new PlayerMonster(), new PolarBear(screen, 0), Environment.ICE);
         currentBattle.begin();
 
