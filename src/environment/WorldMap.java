@@ -28,7 +28,7 @@ abstract class WorldMap {
         this.seed = new NoiseGenerator();
         this.screen = screen;
         this.imageSize = imageSize;
-        this.screenWidth = 832 / imageSize;
+        this.screenWidth = 800 / imageSize;
         this.screenHeight = 416 / imageSize;
         this.lowImages = new Image[this.screenWidth][this.screenHeight];
         this.medImages = new Image[this.screenWidth][this.screenHeight];

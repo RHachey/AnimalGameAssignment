@@ -15,4 +15,15 @@ public class WildMonster extends Monster {
 
     }
 
+    public void center(Location location) {
+
+        this.sprite.center(location);
+
+    }
+
+    public void front() {
+
+        this.sprite.front();
+
+    }
 }

@@ -13,6 +13,7 @@ public class Battle {
     private Rectangle background;
     private Pushbutton confirmButton;
 
+
     public Battle (Screen screen, PlayerMonster playerMonster, WildMonster cpuMonster, Environment environment) {
 
         this.screen = screen;
@@ -24,7 +25,10 @@ public class Battle {
 
     public void begin() {
 
-
+        this.background = new Rectangle(this.screen, 10, 10, 780, 396,
+                new Color(225,225,255));
+        this.cpuMonster.center(background.center());
+        this.cpuMonster.front();
 
     }
 

@@ -2,10 +2,10 @@ import enums.Direction;
 import enums.Environment;
 import environment.IceMap;
 import javadraw.*;
-import monster.PlayerMonster;
-import monster.PolarBear;
+import monster.*;
 import player.*;
 import battle.*;
+import gui.*;
 
 public class Main extends Window {
 
@@ -18,6 +18,7 @@ public class Main extends Window {
 
     boolean inBattle = false;
     Battle currentBattle;
+    Location mouseLocation;
 
     public void start() {
 
@@ -87,6 +88,12 @@ public class Main extends Window {
 
     }
 
+    public void mouseMove(Location location) {
+
+        mouseLocation = location;
+
+    }
+
     public void keyDown(Key key) {
 
         if (key == Key.LEFT) {
@@ -133,7 +140,7 @@ public class Main extends Window {
 
     public static void main(String[] args) {
 
-        Window.open(832,416,"test");
+        Window.open(800,416,"test");
 
     }
 

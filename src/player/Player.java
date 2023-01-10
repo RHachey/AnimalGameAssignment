@@ -18,7 +18,7 @@ public class Player {
 
     private void center() {
 
-        this.sprite.moveTo((double) (832 / this.imageSize / 2 * this.imageSize),
+        this.sprite.moveTo((double) (800 / this.imageSize / 2 * this.imageSize),
                 (double) (416 / this.imageSize / 2 * this.imageSize));
 
     }
