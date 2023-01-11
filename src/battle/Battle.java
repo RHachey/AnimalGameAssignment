@@ -3,6 +3,7 @@ import enums.*;
 import gui.*;
 import monster.*;
 import javadraw.*;
+import java.util.ArrayList;
 
 public class Battle {
 
@@ -23,6 +24,14 @@ public class Battle {
     private Rectangle playerHPBorder;
     private Text playerHPtext;
     private Text scrollText;
+    private Rectangle attacksLabel;
+    private Rectangle defensesLabel;
+    private Text attacksText;
+    private Text defensesText;
+    private ArrayList<Pushbutton> attackButtons;
+    private ArrayList<Pushbutton> defenseButtons;
+    private Attack currentAttack;
+    private Defense currentDefense;
 
     public Battle (Screen screen, PlayerMonster playerMonster, WildMonster cpuMonster, Environment environment) {
 
@@ -33,12 +42,103 @@ public class Battle {
 
     }
 
-    public void slowText(String string) {
+    public void bothSelected() {
+
+        if (this.currentAttack != null && this.currentDefense != null) {
+
+
+
+        }
+
+    }
+
+    public void checkButtons(Location mouseLocation, boolean click) {
+
+        for (int i = 0; i < this.attackButtons.size(); i++) {
+
+            this.attackButtons.get(i).hoverCheck(mouseLocation);
+
+            if (click && this.attackButtons.get(i).box().contains(mouseLocation)) {
+
+                this.attacksText.text("CURRENT ATTACK:\n" + this.playerMonster.attacks().get(i).attackName());
+                this.currentAttack = this.playerMonster.attacks().get(i);
+
+            }
+
+        }
+
+        for (int i = 0; i < this.defenseButtons.size(); i++) {
+
+            this.defenseButtons.get(i).hoverCheck(mouseLocation);
+
+            if (click && this.defenseButtons.get(i).box().contains(mouseLocation)) {
+
+                this.defensesText.text("CURRENT DEFENSE:\n" + this.playerMonster.defenses().get(i).defenseName());
+                this.currentDefense = this.playerMonster.defenses().get(i);
+
+            }
+
+        }
+
+    }
+
+    private void changePlayerHP(int damage) {
+
+        this.playerMonster.stats()[9] = Math.max(0, this.playerMonster.stats()[9] - damage);
+        int newWidth = (int) (250 * (double) this.playerMonster.stats()[9] / this.playerMonster.stats()[10]);
+        int sleepNumber = (int) this.playerHP.width() - newWidth;
+
+        for (int i = 0; i < sleepNumber; i++) {
+
+            this.playerHP.width(this.playerHP.width() - 1);
+            screen.sleep(1.0/(2 * sleepNumber));
+
+        }
+
+    }
+
+    private void changeCpuHP(int damage) {
+
+        this.cpuMonster.stats()[9] = Math.max(0, this.cpuMonster.stats()[9] - damage);
+        int newWidth = (int) (250 * (double) this.cpuMonster.stats()[9] / this.cpuMonster.stats()[10]);
+        int sleepNumber = (int) this.cpuHP.width() - newWidth;
+
+        for (int i = 0; i < sleepNumber; i++) {
+
+            this.cpuHP.width(this.cpuHP.width() - 1);
+            screen.sleep(1.0/(2 * sleepNumber));
+
+        }
+
+    }
+
+    private void slowText(String string) {
 
         for (int i = 0; i < string.length(); i++) {
 
             this.scrollText.text(this.scrollText.text() + string.charAt(i));
             screen.sleep(1.0/string.length());
+
+        }
+
+    }
+
+    private void setUpButtons() {
+
+        attackButtons = new ArrayList<Pushbutton>();
+        defenseButtons = new ArrayList<Pushbutton>();
+
+        for (int i = 0; i < this.playerMonster.attacks().size(); i++) {
+
+            this.attackButtons.add(new Pushbutton(this.screen, this.playerMonster.attacks().get(i).attackName(),
+                    20, 70 + i * 35, 240, 25, mainColor, accentColor, Color.GRAY));
+
+        }
+
+        for (int i = 0; i < this.playerMonster.defenses().size(); i++) {
+
+            this.defenseButtons.add(new Pushbutton(this.screen, this.playerMonster.defenses().get(i).defenseName(),
+                    540, 70 + i * 35, 240, 25, mainColor, accentColor, Color.GRAY));
 
         }
 
@@ -63,9 +163,18 @@ public class Battle {
         this.cpuHPtext = new Text(this.screen, "MONSTER", 280, 76, Color.GRAY, null,
                 "Monospaced", 20, "left", true, false, false,
                 false, 0, true);
+        this.attacksLabel = new Rectangle (this.screen, 20, 20 , 240, 40, accentColor);
+        this.attacksText = new Text(this.screen, "CURRENT ATTACK:\nNONE", 140, 25, mainColor, null,
+                "Monospaced", 12, "center", true, false, false,
+                false, 0, true);
+        this.defensesLabel = new Rectangle (this.screen, 540, 20 , 240, 40, accentColor);
+        this.defensesText = new Text(this.screen, "CURRENT DEFENSE:\nNONE", 660, 25, mainColor, null,
+                "Monospaced", 12, "center", true, false, false,
+                false, 0, true);
+        this.setUpButtons();
         this.cpuMonster.center(background.center());
         this.cpuMonster.front();
-        this.slowText("THIS IS A TEST\nDOES NEW LINE WORK?\nIT DID :D");
+
 
     }
 

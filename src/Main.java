@@ -14,7 +14,7 @@ public class Main extends Window {
     boolean rightDown = false;
     boolean upDown = false;
     boolean downDown = false;
-
+    boolean mouseDown = false;
     boolean inBattle = false;
     Battle currentBattle;
     Location mouseLocation;
@@ -28,7 +28,7 @@ public class Main extends Window {
 
             if (inBattle) {
 
-
+                currentBattle.checkButtons(mouseLocation, mouseDown);
 
             } else {
 
@@ -37,7 +37,7 @@ public class Main extends Window {
             }
 
             screen.update();
-            screen.sleep(1/10.0);
+            screen.sleep(1/60.0);
 
         }
 
@@ -91,6 +91,26 @@ public class Main extends Window {
     public void mouseMove(Location location) {
 
         mouseLocation = location;
+
+    }
+
+    public void mouseDown(Location location, int button) {
+
+        if (button == 1) {
+
+            mouseDown = true;
+
+        }
+
+    }
+
+    public void mouseUp(Location location, int button) {
+
+        if (button == 1) {
+
+            mouseDown = false;
+
+        }
 
     }
 

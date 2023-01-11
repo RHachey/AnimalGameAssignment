@@ -23,6 +23,13 @@ public class Pushbutton {
         this.text.size(15);
         this.text.color(textColor);
         this.text.center(this.box.center());
+        this.text.y(this.text.y() - 5);
+
+    }
+
+    public Rectangle box() {
+
+        return this.box;
 
     }
 
