@@ -19,6 +19,18 @@ public enum Attack {
 
     }
 
+    public int element() {
+
+        return element;
+
+    }
+
+    public int type() {
+
+        return type;
+
+    }
+
     Attack(int element, int type, String attackName) {
 
         this.element = element;

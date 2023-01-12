@@ -33,6 +33,19 @@ public class Pushbutton {
 
     }
 
+    public void visible(boolean visible) {
+
+        this.box.visible(visible);
+        this.text.visible(visible);
+
+    }
+
+    public boolean visible() {
+
+        return this.box.visible();
+
+    }
+
     public void hoverCheck(Location location) {
 
         if (this.box.contains(location)) {

@@ -19,6 +19,18 @@ public enum Defense {
 
     }
 
+    public int element() {
+
+        return element;
+
+    }
+
+    public int type() {
+
+        return type;
+
+    }
+
     Defense(int element, int type, String defenseName) {
 
         this.element = element;

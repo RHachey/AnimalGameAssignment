@@ -32,6 +32,7 @@ public class Battle {
     private ArrayList<Pushbutton> defenseButtons;
     private Attack currentAttack;
     private Defense currentDefense;
+    private Pushbutton confirmButton;
 
     public Battle (Screen screen, PlayerMonster playerMonster, WildMonster cpuMonster, Environment environment) {
 
@@ -42,11 +43,57 @@ public class Battle {
 
     }
 
-    public void bothSelected() {
+    private void playerTurn(Defense cpuDefense) {
 
-        if (this.currentAttack != null && this.currentDefense != null) {
+        int effectiveDefense = this.cpuMonster.stats()[this.currentAttack.type()];
+        double dodgeChance = (double) this.cpuMonster.stats()[cpuDefense.type()]
+                / (this.cpuMonster.stats()[cpuDefense.type()] + 2 * this.playerMonster.stats()[cpuDefense.type()]);
+
+        if (cpuDefense.type() == this.currentAttack.type() && Math.random() < dodgeChance) {
+
+            String slowTextString = "You used " + this.currentAttack.attackName() + "!\nThe "
+                    + this.cpuMonster.name() + " used " + cpuDefense.defenseName() + "!\n";
+
+            if (cpuDefense.type() == 6) {
+
+                slowTextString += "The attack was blocked!";
+
+            } else {
+
+                slowTextString += "The attack was dodged";
+
+            }
+
+            this.slowText(slowTextString);
+
+        } else {
+
+            this.slowText("bozo");
+
+        }
+
+    }
+
+    private void cpuTurn(Attack cpuAttack) {
 
 
+
+    }
+
+    private void doRound() {
+
+        Attack cpuCurrentAttack = this.cpuMonster.attacks().get((int)
+                (Math.random() * this.cpuMonster.attacks().size()));
+        Defense cpuCurrentDefense = this.cpuMonster.defenses().get((int)
+                (Math.random() * this.cpuMonster.defenses().size()));
+        System.out.println(cpuCurrentAttack.attackName() + " " + cpuCurrentDefense.defenseName());
+
+        int totalSpeed = this.playerMonster.stats()[7] + this.cpuMonster.stats()[7];
+
+        if (Math.random() * totalSpeed < this.playerMonster.stats()[7]) {
+
+            this.playerTurn(cpuCurrentDefense);
+            this.cpuTurn(cpuCurrentAttack);
 
         }
 
@@ -75,6 +122,20 @@ public class Battle {
 
                 this.defensesText.text("CURRENT DEFENSE:\n" + this.playerMonster.defenses().get(i).defenseName());
                 this.currentDefense = this.playerMonster.defenses().get(i);
+
+            }
+
+        }
+
+        this.confirmButton.visible(this.currentAttack != null && this.currentDefense != null);
+
+        if (this.confirmButton.visible()) {
+
+            this.confirmButton.hoverCheck(mouseLocation);
+
+            if (click && this.confirmButton.box().contains(mouseLocation)) {
+
+                this.doRound();
 
             }
 
@@ -114,6 +175,8 @@ public class Battle {
 
     private void slowText(String string) {
 
+        this.scrollText.text("");
+
         for (int i = 0; i < string.length(); i++) {
 
             this.scrollText.text(this.scrollText.text() + string.charAt(i));
@@ -148,8 +211,8 @@ public class Battle {
 
         this.backgroundBorder = new Rectangle(this.screen, 0, 0, 800, 416, accentColor);
         this.background = new Rectangle(this.screen, 10, 10, 780, 396, mainColor);
-        this.textBoxBorder = new Rectangle(this.screen, 20, 280, 760, 116, accentColor);
-        this.textBox = new Rectangle(this.screen, 28, 288, 744, 100, mainColor);
+        this.textBoxBorder = new Rectangle(this.screen, 20, 280, 634, 116, accentColor);
+        this.textBox = new Rectangle(this.screen, 28, 288, 618, 100, mainColor);
         this.scrollText = new Text(this.screen, "", 36, 288, accentColor, null,
                 "Monospaced", 25, "left", true, false, false,
                 false, 0, true);
@@ -172,6 +235,9 @@ public class Battle {
                 "Monospaced", 12, "center", true, false, false,
                 false, 0, true);
         this.setUpButtons();
+        this.confirmButton = new Pushbutton(this.screen, "GO!", 664, 280, 116, 116,
+                mainColor, accentColor, Color.GRAY);
+        this.confirmButton.visible(false);
         this.cpuMonster.center(background.center());
         this.cpuMonster.front();
 

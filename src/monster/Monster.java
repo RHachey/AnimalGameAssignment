@@ -43,13 +43,13 @@ abstract class Monster {
 
     public ArrayList<Attack> attacks() {
 
-        return attacks;
+        return this.attacks;
 
     }
 
     public ArrayList<Defense> defenses() {
 
-        return defenses;
+        return this.defenses;
 
     }
 

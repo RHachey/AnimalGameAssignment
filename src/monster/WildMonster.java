@@ -8,13 +8,21 @@ public class WildMonster extends Monster {
 
     private Screen screen;
     private Image sprite;
+    private String name;
 
     public WildMonster(Screen screen, Image sprite, int level, int[] stats,
-                       ArrayList<Attack> attacks, ArrayList<Defense> defenses) {
+                       ArrayList<Attack> attacks, ArrayList<Defense> defenses, String name) {
 
         super(level, stats, attacks, defenses, true);
         this.screen = screen;
         this.sprite = sprite;
+        this.name = name;
+
+    }
+
+    public String name() {
+
+        return name;
 
     }
 
