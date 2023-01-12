@@ -66,6 +66,27 @@ public class Battle {
 
         }
 
+        for (int i = 0; i < 5; i++) {
+
+            this.cpuMonster.sprite().move(-2, -2);
+            this.screen.sleep(1/90.0);
+
+        }
+
+        for (int i = 0; i < 10; i++) {
+
+            this.cpuMonster.sprite().move(2, 2);
+            this.screen.sleep(1/90.0);
+
+        }
+
+        for (int i = 0; i < 5; i++) {
+
+            this.cpuMonster.sprite().move(-2, -2);
+            this.screen.sleep(1/90.0);
+
+        }
+
     }
 
     private void playerTurn(Defense cpuDefense) {
@@ -276,7 +297,7 @@ public class Battle {
         this.confirmButton = new Pushbutton(this.screen, "GO!", 664, 280, 116, 116,
                 mainColor, accentColor, Color.GRAY);
         this.confirmButton.visible(false);
-        this.cpuMonster.center(background.center());
+        this.cpuMonster.center(new Location(400, 195));
         this.cpuMonster.front();
 
 

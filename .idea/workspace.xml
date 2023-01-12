@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="you can now actually attack but can only get dodged">
+    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="added a hit animation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monster/WildMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/WildMonster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673545686310</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added a hit animation">
+      <created>1673547402066</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673547402066</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,7 +152,8 @@
     <MESSAGE value="added all of the attack moves and defense moves" />
     <MESSAGE value="added a button class and edited monster hierarchy" />
     <MESSAGE value="you can now actually attack but can only get dodged" />
-    <option name="LAST_COMMIT_MESSAGE" value="you can now actually attack but can only get dodged" />
+    <MESSAGE value="added a hit animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a hit animation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AnimalGameAssignment$Always_Main_Animal_Game.ic" NAME="Always Main Animal Game Coverage Results" MODIFIED="1673111489164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
