@@ -20,6 +20,12 @@ public class WildMonster extends Monster {
 
     }
 
+    public Image sprite() {
+
+        return sprite;
+
+    }
+
     public String name() {
 
         return name;

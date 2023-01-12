@@ -43,11 +43,47 @@ public class Battle {
 
     }
 
+    private void hitAnimation() {
+
+        for (int i = 0; i < 5; i++) {
+
+            this.cpuMonster.sprite().move(2,-2);
+            this.screen.sleep(1/90.0);
+
+        }
+
+        for (int i = 0; i < 10; i++) {
+
+            this.cpuMonster.sprite().move(-2,2);
+            this.screen.sleep(1/90.0);
+
+        }
+
+        for (int i = 0; i < 5; i++) {
+
+            this.cpuMonster.sprite().move(2, -2);
+            this.screen.sleep(1/90.0);
+
+        }
+
+    }
+
     private void playerTurn(Defense cpuDefense) {
 
         int effectiveDefense = this.cpuMonster.stats()[this.currentAttack.type()];
-        double dodgeChance = (double) this.cpuMonster.stats()[cpuDefense.type()]
-                / (this.cpuMonster.stats()[cpuDefense.type()] + 2 * this.playerMonster.stats()[cpuDefense.type()]);
+        double dodgeChance;
+
+        if (cpuDefense.element() == this.currentAttack.element()) {
+
+            dodgeChance = (double) this.cpuMonster.stats()[cpuDefense.type()]
+                    / (this.cpuMonster.stats()[cpuDefense.type()] + 1.5 * this.playerMonster.stats()[cpuDefense.type()]);
+
+        } else {
+
+            dodgeChance = (double) this.cpuMonster.stats()[cpuDefense.type()]
+                    / (this.cpuMonster.stats()[cpuDefense.type()] + 2 * this.playerMonster.stats()[cpuDefense.type()]);
+
+        }
 
         if (cpuDefense.type() == this.currentAttack.type() && Math.random() < dodgeChance) {
 
@@ -68,6 +104,8 @@ public class Battle {
 
         } else {
 
+            this.hitAnimation();
+            this.changeCpuHP(1);
             this.slowText("bozo");
 
         }
