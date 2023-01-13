@@ -10,6 +10,28 @@ public enum Environment {
     private double waterMod;
     private double poisonMod;
 
+    public double mod(int n) {
+
+        return switch (n) {
+
+            case 0 -> this.fireMod;
+
+            case 1 -> this.waterMod;
+
+            case 2 -> this.poisonMod;
+
+            case 3 -> this.fireMod;
+
+            case 4 -> this.waterMod;
+
+            case 5 -> this.poisonMod;
+
+            default -> 1;
+
+        };
+
+    }
+
     Environment (double fireMod, double waterMod, double poisonMod) {
 
         this.fireMod = fireMod;

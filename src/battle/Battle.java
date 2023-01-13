@@ -95,8 +95,8 @@ public class Battle {
 
         if (cpuDefense.element() - 3 == this.currentAttack.element()) {
 
-            dodgeChance = (double) (this.cpuMonster.stats()[cpuDefense.type()] +
-                    this.cpuMonster.stats()[cpuDefense.element()])
+            dodgeChance = (this.cpuMonster.stats()[cpuDefense.type()] +
+                    this.cpuMonster.stats()[cpuDefense.element()] + this.environment.mod(cpuDefense.element()))
                     / (this.cpuMonster.stats()[cpuDefense.type()] + 2 *
                     this.playerMonster.stats()[cpuDefense.type()]);
 
@@ -143,8 +143,8 @@ public class Battle {
 
         if (cpuAttack.element() == this.currentDefense.element() - 3) {
 
-            dodgeChance = (double) (this.playerMonster.stats()[cpuAttack.type()] +
-                    this.playerMonster.stats()[cpuAttack.element()])
+            dodgeChance = (this.playerMonster.stats()[cpuAttack.type()] +
+                    this.playerMonster.stats()[cpuAttack.element() + 3] * this.environment.mod(cpuAttack.element()))
                     / (this.playerMonster.stats()[cpuAttack.type()] + 2 *
                     this.cpuMonster.stats()[cpuAttack.type()]);
 
