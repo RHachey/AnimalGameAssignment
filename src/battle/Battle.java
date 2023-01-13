@@ -91,18 +91,20 @@ public class Battle {
 
     private void playerTurn(Defense cpuDefense) {
 
-        int effectiveDefense = this.cpuMonster.stats()[this.currentAttack.type()];
         double dodgeChance;
 
-        if (cpuDefense.element() == this.currentAttack.element()) {
+        if (cpuDefense.element() - 3 == this.currentAttack.element()) {
 
-            dodgeChance = (double) this.cpuMonster.stats()[cpuDefense.type()]
-                    / (this.cpuMonster.stats()[cpuDefense.type()] + 1.5 * this.playerMonster.stats()[cpuDefense.type()]);
+            dodgeChance = (double) (this.cpuMonster.stats()[cpuDefense.type()] +
+                    this.cpuMonster.stats()[cpuDefense.element()])
+                    / (this.cpuMonster.stats()[cpuDefense.type()] + 2 *
+                    this.playerMonster.stats()[cpuDefense.type()]);
 
         } else {
 
             dodgeChance = (double) this.cpuMonster.stats()[cpuDefense.type()]
-                    / (this.cpuMonster.stats()[cpuDefense.type()] + 2 * this.playerMonster.stats()[cpuDefense.type()]);
+                    / (this.cpuMonster.stats()[cpuDefense.type()] + 2 *
+                    this.playerMonster.stats()[cpuDefense.type()]);
 
         }
 
@@ -117,7 +119,7 @@ public class Battle {
 
             } else {
 
-                slowTextString += "The attack was dodged";
+                slowTextString += "The attack was dodged!";
 
             }
 
@@ -127,7 +129,9 @@ public class Battle {
 
             this.hitAnimation();
             this.changeCpuHP(1);
-            this.slowText("bozo");
+            this.slowText("You used " + this.currentAttack.attackName() + "!\nThe "
+                    + this.cpuMonster.name() + " used " + cpuDefense.defenseName() + "!\nIt hits the "
+                    + this.cpuMonster.name() + "!");
 
         }
 
@@ -135,7 +139,47 @@ public class Battle {
 
     private void cpuTurn(Attack cpuAttack) {
 
+        double dodgeChance;
 
+        if (cpuAttack.element() == this.currentDefense.element() - 3) {
+
+            dodgeChance = (double) (this.playerMonster.stats()[cpuAttack.type()] +
+                    this.playerMonster.stats()[cpuAttack.element()])
+                    / (this.playerMonster.stats()[cpuAttack.type()] + 2 *
+                    this.cpuMonster.stats()[cpuAttack.type()]);
+
+        } else {
+
+            dodgeChance = (double) this.playerMonster.stats()[cpuAttack.type()]
+                    / (this.playerMonster.stats()[cpuAttack.type()] + 2 *
+                    this.cpuMonster.stats()[cpuAttack.type()]);
+
+        }
+
+        if (cpuAttack.type() == this.currentDefense.type() && Math.random() < dodgeChance) {
+
+            String slowTextString = "The " + this.cpuMonster.name() + " used " + cpuAttack.attackName() +
+                    "!\nYou used " + this.currentDefense.defenseName() + "!\n";
+
+            if (cpuAttack.type() == 6) {
+
+                slowTextString += "You blocked the attack!";
+
+            } else {
+
+                slowTextString += "You dodged the attack!";
+
+            }
+
+            this.slowText(slowTextString);
+
+        } else {
+
+            this.changePlayerHP(1);
+            this.slowText("You used " + this.currentDefense.defenseName() + "!\nThe "
+                    + this.cpuMonster.name() + " used " + cpuAttack.attackName() + "!\nYou are hit!");
+
+        }
 
     }
 
@@ -145,14 +189,20 @@ public class Battle {
                 (Math.random() * this.cpuMonster.attacks().size()));
         Defense cpuCurrentDefense = this.cpuMonster.defenses().get((int)
                 (Math.random() * this.cpuMonster.defenses().size()));
-        System.out.println(cpuCurrentAttack.attackName() + " " + cpuCurrentDefense.defenseName());
 
-        int totalSpeed = this.playerMonster.stats()[7] + this.cpuMonster.stats()[7];
+        int totalSpeed = this.playerMonster.stats()[8] + this.cpuMonster.stats()[8];
 
-        if (Math.random() * totalSpeed < this.playerMonster.stats()[7]) {
+        if (Math.random() * totalSpeed < this.playerMonster.stats()[8]) {
 
             this.playerTurn(cpuCurrentDefense);
+            screen.sleep(4);
             this.cpuTurn(cpuCurrentAttack);
+
+        } else {
+
+            this.cpuTurn(cpuCurrentAttack);
+            screen.sleep(4);
+            this.playerTurn(cpuCurrentDefense);
 
         }
 
