@@ -96,7 +96,7 @@ public class Battle {
         if (cpuDefense.element() - 3 == this.currentAttack.element()) {
 
             dodgeChance = (this.cpuMonster.stats()[cpuDefense.type()] +
-                    this.cpuMonster.stats()[cpuDefense.element()] + this.environment.mod(cpuDefense.element()))
+                    this.cpuMonster.stats()[cpuDefense.element()] * this.environment.mod(cpuDefense.element()))
                     / (this.cpuMonster.stats()[cpuDefense.type()] + 2 *
                     this.playerMonster.stats()[cpuDefense.type()]);
 
@@ -127,11 +127,38 @@ public class Battle {
 
         } else {
 
+            //effective defense = element defense (double if correct type) +
+            //defense type (double if correct type) + attack element defense
+
+            double effectiveDefense = this.cpuMonster.stats()[cpuDefense.element()] *
+                    environment.mod(cpuDefense.element()) + this.cpuMonster.stats()[cpuDefense.type()] +
+                    this.cpuMonster.stats()[this.currentAttack.element() + 3];
+
+            if (cpuDefense.element() - 3 == this.currentAttack.element()) {
+
+                effectiveDefense += this.cpuMonster.stats()[cpuDefense.element()] *
+                        environment.mod(cpuDefense.element());
+
+            }
+
+            if (cpuDefense.type() == this.currentAttack.type()) {
+
+                effectiveDefense += this.cpuMonster.stats()[cpuDefense.type()];
+
+            }
+
+            //effective attack = attack type + attack element * 10
+
+            double effectiveAttack = (this.playerMonster.stats()[this.currentAttack.element()] *
+                    environment.mod(this.currentAttack.element()) +
+                    this.playerMonster.stats()[this.currentAttack.type()]) * 10;
+            int damage = (int) (effectiveAttack / effectiveDefense);
+
             this.hitAnimation();
-            this.changeCpuHP(1);
+            this.changeCpuHP(damage);
             this.slowText("You used " + this.currentAttack.attackName() + "!\nThe "
                     + this.cpuMonster.name() + " used " + cpuDefense.defenseName() + "!\nIt hits the "
-                    + this.cpuMonster.name() + "!");
+                    + this.cpuMonster.name() + " doing " + damage + " damage!");
 
         }
 

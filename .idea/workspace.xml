@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="monsters can now take their turn, attacks still do 1 damage each">
+    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="started to integrate environmental modifiers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Environment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673619304945</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="started to integrate environmental modifiers">
+      <created>1673637709502</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673637709502</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -170,7 +176,8 @@
     <MESSAGE value="added a hit animation" />
     <MESSAGE value="improved the hit animation, improved gui allignment" />
     <MESSAGE value="monsters can now take their turn, attacks still do 1 damage each" />
-    <option name="LAST_COMMIT_MESSAGE" value="monsters can now take their turn, attacks still do 1 damage each" />
+    <MESSAGE value="started to integrate environmental modifiers" />
+    <option name="LAST_COMMIT_MESSAGE" value="started to integrate environmental modifiers" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AnimalGameAssignment$Always_Main_Animal_Game.ic" NAME="Always Main Animal Game Coverage Results" MODIFIED="1673111489164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
