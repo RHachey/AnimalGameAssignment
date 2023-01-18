@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="player attack math finished">
+    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="the battles now have winners, and can be exited upon completion">
+      <change afterPath="$PROJECT_DIR$/images/monsters/penguin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/monster/Penguin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Pushbutton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Pushbutton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monster/WildMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/WildMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environment/WorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/environment/WorldMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +25,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="baa5036b-04ec-495f-bf6c-52746e790625" />
+        <option name="url" value="https://github.com/RHachey/AnimalGameAssignment.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -53,6 +65,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\monsters" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\player" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\maps" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\environment" />
@@ -171,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673977207693</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="the battles now have winners, and can be exited upon completion">
+      <created>1674065139949</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1674065139950</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -188,7 +208,8 @@
     <MESSAGE value="monsters can now take their turn, attacks still do 1 damage each" />
     <MESSAGE value="started to integrate environmental modifiers" />
     <MESSAGE value="player attack math finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="player attack math finished" />
+    <MESSAGE value="the battles now have winners, and can be exited upon completion" />
+    <option name="LAST_COMMIT_MESSAGE" value="the battles now have winners, and can be exited upon completion" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AnimalGameAssignment$Always_Main_Animal_Game.ic" NAME="Always Main Animal Game Coverage Results" MODIFIED="1673111489164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

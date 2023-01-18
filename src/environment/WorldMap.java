@@ -1,5 +1,6 @@
 package environment;
 import javadraw.*;
+import monster.WildMonster;
 import noise.NoiseGenerator;
 import enums.*;
 
@@ -110,5 +111,6 @@ abstract class WorldMap {
     public abstract void render();
 
     public abstract void generateImages();
+    //public abstract WildMonster randomMonster();
 
 }
