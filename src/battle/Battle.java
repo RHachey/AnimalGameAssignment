@@ -202,9 +202,34 @@ public class Battle {
 
         } else {
 
-            this.changePlayerHP(1);
+            double effectiveDefense = this.playerMonster.stats()[this.currentDefense.element()] *
+                    environment.mod(this.currentDefense.element()) + this.playerMonster.stats()[this.currentDefense.type()] +
+                    this.playerMonster.stats()[cpuAttack.element() + 3];
+
+            if (this.currentDefense.element() - 3 == cpuAttack.element()) {
+
+                effectiveDefense += this.playerMonster.stats()[this.currentDefense.element()] *
+                        environment.mod(this.currentDefense.element());
+
+            }
+
+            if (this.currentDefense.type() == cpuAttack.type()) {
+
+                effectiveDefense += this.playerMonster.stats()[this.currentDefense.type()];
+
+            }
+
+            //effective attack = attack type + attack element * 10
+
+            double effectiveAttack = (this.cpuMonster.stats()[cpuAttack.element()] *
+                    environment.mod(cpuAttack.element()) +
+                    this.cpuMonster.stats()[cpuAttack.type()]) * 10;
+            int damage = (int) (effectiveAttack / effectiveDefense);
+
+            this.changePlayerHP(damage);
             this.slowText("You used " + this.currentDefense.defenseName() + "!\nThe "
-                    + this.cpuMonster.name() + " used " + cpuAttack.attackName() + "!\nYou are hit!");
+                    + this.cpuMonster.name() + " used " + cpuAttack.attackName() + "!\nYou are hit for "
+                    + damage + " damage!");
 
         }
 

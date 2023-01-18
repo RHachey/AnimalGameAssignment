@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="started to integrate environmental modifiers">
+    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="player attack math finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
     </list>
@@ -161,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673637709502</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="player attack math finished">
+      <created>1673977207693</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1673977207693</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -177,7 +184,8 @@
     <MESSAGE value="improved the hit animation, improved gui allignment" />
     <MESSAGE value="monsters can now take their turn, attacks still do 1 damage each" />
     <MESSAGE value="started to integrate environmental modifiers" />
-    <option name="LAST_COMMIT_MESSAGE" value="started to integrate environmental modifiers" />
+    <MESSAGE value="player attack math finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="player attack math finished" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AnimalGameAssignment$Always_Main_Animal_Game.ic" NAME="Always Main Animal Game Coverage Results" MODIFIED="1673111489164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
