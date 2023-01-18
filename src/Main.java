@@ -28,7 +28,16 @@ public class Main extends Window {
 
             if (inBattle) {
 
-                currentBattle.checkButtons(mouseLocation, mouseDown);
+                if (!currentBattle.isReallyOver()) {
+
+                    currentBattle.checkButtons(mouseLocation, mouseDown);
+
+                } else {
+
+                    mapTest.visible(true);
+                    inBattle = false;
+
+                }
 
             } else {
 

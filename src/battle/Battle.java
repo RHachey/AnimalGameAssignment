@@ -33,6 +33,8 @@ public class Battle {
     private Attack currentAttack;
     private Defense currentDefense;
     private Pushbutton confirmButton;
+    private boolean isOver = false;
+    private boolean isReallyOver = false;
 
     public Battle (Screen screen, PlayerMonster playerMonster, WildMonster cpuMonster, Environment environment) {
 
@@ -152,6 +154,8 @@ public class Battle {
             double effectiveAttack = (this.playerMonster.stats()[this.currentAttack.element()] *
                     environment.mod(this.currentAttack.element()) +
                     this.playerMonster.stats()[this.currentAttack.type()]) * 10;
+            System.out.println(effectiveDefense);
+            System.out.println(effectiveAttack);
             int damage = (int) (effectiveAttack / effectiveDefense);
 
             this.hitAnimation();
@@ -224,6 +228,8 @@ public class Battle {
             double effectiveAttack = (this.cpuMonster.stats()[cpuAttack.element()] *
                     environment.mod(cpuAttack.element()) +
                     this.cpuMonster.stats()[cpuAttack.type()]) * 10;
+            System.out.println(effectiveDefense);
+            System.out.println(effectiveAttack);
             int damage = (int) (effectiveAttack / effectiveDefense);
 
             this.changePlayerHP(damage);
@@ -247,14 +253,41 @@ public class Battle {
         if (Math.random() * totalSpeed < this.playerMonster.stats()[8]) {
 
             this.playerTurn(cpuCurrentDefense);
-            screen.sleep(4);
-            this.cpuTurn(cpuCurrentAttack);
+
+            if (this.cpuMonster.stats()[9] != 0) {
+
+                screen.sleep(4);
+                this.cpuTurn(cpuCurrentAttack);
+
+            }
 
         } else {
 
             this.cpuTurn(cpuCurrentAttack);
+
+            if (this.playerMonster.stats()[9] != 0) {
+
+                screen.sleep(4);
+                this.playerTurn(cpuCurrentDefense);
+
+            }
+
+        }
+
+        if (this.playerMonster.stats()[9] == 0) {
+
             screen.sleep(4);
-            this.playerTurn(cpuCurrentDefense);
+            this.slowText("You have been knocked out!\nYou have lost the battle!");
+            this.isOver = true;
+            this.confirmButton.text("EXIT");
+
+        } else if (this.cpuMonster.stats()[9] == 0) {
+
+            screen.sleep(4);
+            this.slowText("The " + this.cpuMonster.name() + " has been knocked out!\n" +
+                    "You have won the battle!");
+            this.isOver = true;
+            this.confirmButton.text("EXIT");
 
         }
 
@@ -296,7 +329,16 @@ public class Battle {
 
             if (click && this.confirmButton.box().contains(mouseLocation)) {
 
-                this.doRound();
+                if (!this.isOver) {
+
+                    this.doRound();
+
+                } else {
+
+                    this.end();
+                    this.isReallyOver = true;
+
+                }
 
             }
 
@@ -368,6 +410,40 @@ public class Battle {
 
     }
 
+    public void end() {
+
+        this.backgroundBorder.visible(false);
+        this.background.visible(false);
+        this.textBoxBorder.visible(false);
+        this.textBox.visible(false);
+        this.scrollText.visible(false);
+        this.playerHPBorder.visible(false);
+        this.playerHP.visible(false);
+        this.playerHPtext.visible(false);
+        this.cpuHPBorder.visible(false);
+        this.cpuHP.visible(false);
+        this.cpuHPtext.visible(false);
+        this.attacksLabel.visible(false);
+        this.attacksText.visible(false);
+        this.defensesText.visible(false);
+        this.defensesLabel.visible(false);
+        this.confirmButton.visible(false);
+        this.cpuMonster.visible(false);
+
+        for (int i = 0; i < this.attackButtons.size(); i++) {
+
+            this.attackButtons.get(i).visible(false);
+
+        }
+
+        for (int i = 0; i < this.defenseButtons.size(); i++) {
+
+            this.defenseButtons.get(i).visible(false);
+
+        }
+
+    }
+
     public void begin() {
 
         this.backgroundBorder = new Rectangle(this.screen, 0, 0, 800, 416, accentColor);
@@ -402,6 +478,12 @@ public class Battle {
         this.cpuMonster.center(new Location(400, 195));
         this.cpuMonster.front();
 
+
+    }
+
+    public boolean isReallyOver() {
+
+        return this.isReallyOver;
 
     }
 

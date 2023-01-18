@@ -20,6 +20,12 @@ public class WildMonster extends Monster {
 
     }
 
+    public void visible(boolean bool) {
+
+        this.sprite.visible(false);
+
+    }
+
     public Image sprite() {
 
         return sprite;

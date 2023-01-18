@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="player attack math finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Pushbutton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Pushbutton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/monster/WildMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/WildMonster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -27,6 +27,13 @@ public class Pushbutton {
 
     }
 
+    public void text(String text) {
+
+        this.text.text(text);
+        this.text.center(this.box.center());
+
+    }
+
     public Rectangle box() {
 
         return this.box;
