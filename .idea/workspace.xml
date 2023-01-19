@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="the battles now have winners, and can be exited upon completion">
-      <change afterPath="$PROJECT_DIR$/images/monsters/penguin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/monster/Penguin.java" afterDir="false" />
+    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="added penguin monster">
+      <change afterPath="$PROJECT_DIR$/images/maps/sandHigh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/maps/sandLow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/maps/sandMed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/monsters/armadillo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/environment/DesertMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/monster/Armadillo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environment/IceMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/environment/IceMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/environment/WorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/environment/WorldMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Pushbutton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Pushbutton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/monster/Penguin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/Penguin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +76,8 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\monsters" />
-      <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\player" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\maps" />
+      <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\player" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\environment" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\src" />
     </key>
@@ -191,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674065139950</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added penguin monster">
+      <created>1674070076344</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1674070076344</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,7 +226,8 @@
     <MESSAGE value="started to integrate environmental modifiers" />
     <MESSAGE value="player attack math finished" />
     <MESSAGE value="the battles now have winners, and can be exited upon completion" />
-    <option name="LAST_COMMIT_MESSAGE" value="the battles now have winners, and can be exited upon completion" />
+    <MESSAGE value="added penguin monster" />
+    <option name="LAST_COMMIT_MESSAGE" value="added penguin monster" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AnimalGameAssignment$Always_Main_Animal_Game.ic" NAME="Always Main Animal Game Coverage Results" MODIFIED="1673111489164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

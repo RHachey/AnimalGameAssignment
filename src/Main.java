@@ -1,6 +1,6 @@
 import enums.Direction;
 import enums.Environment;
-import environment.IceMap;
+import environment.*;
 import javadraw.*;
 import monster.*;
 import player.*;
@@ -8,7 +8,7 @@ import battle.*;
 
 public class Main extends Window {
 
-    IceMap mapTest;
+    DesertMap mapTest;
     Player playerOne;
     boolean leftDown = false;
     boolean rightDown = false;
@@ -21,7 +21,7 @@ public class Main extends Window {
 
     public void start() {
 
-        mapTest = new IceMap(screen,200, 200, 32);
+        mapTest = new DesertMap(screen,200, 200, 32);
         playerOne = new Player(screen, 32);
 
         while (true) {
@@ -55,7 +55,7 @@ public class Main extends Window {
     public void startBattle() {
 
         mapTest.visible(false);
-        currentBattle = new Battle(screen, new PlayerMonster(), new PolarBear(screen, 0), Environment.ICE);
+        currentBattle = new Battle(screen, new PlayerMonster(), mapTest.randomMonster(0), mapTest.environment());
         currentBattle.begin();
 
     }

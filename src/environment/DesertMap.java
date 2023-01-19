@@ -1,13 +1,14 @@
 package environment;
 import enums.Environment;
 import javadraw.*;
-import monster.*;
+import monster.Armadillo;
+import monster.WildMonster;
 
-public class IceMap extends WorldMap {
+public class DesertMap extends WorldMap {
 
-    public IceMap (Screen screen, int width, int height, int imageSize) {
+    public DesertMap (Screen screen, int width, int height, int imageSize) {
 
-        super(screen, width, height, imageSize, Environment.ICE);
+        super(screen, width, height, imageSize, Environment.DESERT);
 
     }
 
@@ -20,12 +21,12 @@ public class IceMap extends WorldMap {
 
                 double percent = (this.values[i][j] - this.lower) / this.range;
 
-                if (percent >= 0.6) {
+                if (percent >= 0.8) {
 
                     this.lowImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
                     this.medImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
 
-                } else if (percent >= 0.4) {
+                } else if (percent >= 0.6) {
 
                     this.lowImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
                     this.highImages[i - (int) this.topLeft.x()][j - (int) this.topLeft.y()].back();
@@ -50,11 +51,11 @@ public class IceMap extends WorldMap {
 
             for (int j = 0; j < this.screenHeight; j++) {
 
-                lowImages[i][j] = new Image(this.screen, "images/maps/iceLow.png",
+                lowImages[i][j] = new Image(this.screen, "images/maps/sandLow.png",
                         this.imageSize * i, this.imageSize * j, this.imageSize, this.imageSize);
-                medImages[i][j] = new Image(this.screen, "images/maps/iceMed.png",
+                medImages[i][j] = new Image(this.screen, "images/maps/sandMed.png",
                         this.imageSize * i, this.imageSize * j, this.imageSize, this.imageSize);
-                highImages[i][j] = new Image(this.screen, "images/maps/iceHigh.png",
+                highImages[i][j] = new Image(this.screen, "images/maps/sandHigh.png",
                         this.imageSize * i, this.imageSize * j, this.imageSize, this.imageSize);
 
             }
@@ -66,15 +67,8 @@ public class IceMap extends WorldMap {
     @Override
     public WildMonster randomMonster(int level) {
 
-        double randomNum = Math.random();
-
-        if (randomNum < 0.5) {
-
-            return new PolarBear(this.screen, level);
-
-        }
-
-        return new Penguin(this.screen, level);
+        return new Armadillo(this.screen, level);
 
     }
+
 }

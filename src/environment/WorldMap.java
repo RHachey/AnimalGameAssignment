@@ -20,8 +20,9 @@ abstract class WorldMap {
     protected Location topLeft = new Location(0, 0);
     protected double range;
     protected double lower;
+    private Environment environment;
 
-    public WorldMap(Screen screen, int width, int height, int imageSize) {
+    public WorldMap(Screen screen, int width, int height, int imageSize, Environment environment) {
 
         this.width = width;
         this.height = height;
@@ -29,6 +30,7 @@ abstract class WorldMap {
         this.seed = new NoiseGenerator();
         this.screen = screen;
         this.imageSize = imageSize;
+        this.environment = environment;
         this.screenWidth = 800 / imageSize;
         this.screenHeight = 416 / imageSize;
         this.lowImages = new Image[this.screenWidth][this.screenHeight];
@@ -108,9 +110,15 @@ abstract class WorldMap {
 
     }
 
+    public Environment environment() {
+
+        return this.environment;
+
+    }
+
     public abstract void render();
 
     public abstract void generateImages();
-    //public abstract WildMonster randomMonster();
+    public abstract WildMonster randomMonster(int level);
 
 }

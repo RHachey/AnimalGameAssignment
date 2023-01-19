@@ -15,7 +15,7 @@ public class Battle {
     private Rectangle background;
     private Rectangle textBox;
     private Rectangle textBoxBorder;
-    private Color mainColor = new Color(225, 225, 255);
+    private Color mainColor;
     private Color accentColor = Color.BLACK;
     private Rectangle cpuHP;
     private Rectangle cpuHPBorder;
@@ -42,6 +42,7 @@ public class Battle {
         this.playerMonster = playerMonster;
         this.cpuMonster = cpuMonster;
         this.environment = environment;
+        this.mainColor = environment.color();
 
     }
 

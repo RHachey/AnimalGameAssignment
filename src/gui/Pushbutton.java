@@ -31,6 +31,7 @@ public class Pushbutton {
 
         this.text.text(text);
         this.text.center(this.box.center());
+        this.text.y(this.text.y() - 5);
 
     }
 
