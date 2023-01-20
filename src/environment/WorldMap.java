@@ -4,7 +4,7 @@ import monster.WildMonster;
 import noise.NoiseGenerator;
 import enums.*;
 
-abstract class WorldMap {
+public abstract class WorldMap {
 
     protected int width;
     protected int height;

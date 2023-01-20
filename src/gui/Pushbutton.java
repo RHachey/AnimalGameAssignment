@@ -5,8 +5,8 @@ import javadraw.*;
 public class Pushbutton {
 
     private Screen screen;
-    private Rectangle box;
-    private Text text;
+    protected Rectangle box;
+    protected Text text;
     private Color idleColor;
     private Color activeColor;
 
@@ -24,6 +24,13 @@ public class Pushbutton {
         this.text.color(textColor);
         this.text.center(this.box.center());
         this.text.y(this.text.y() - 5);
+
+    }
+
+    protected void order() {
+
+        this.box.front();
+        this.text.front();
 
     }
 

@@ -1,14 +1,17 @@
 import enums.Direction;
-import enums.Environment;
 import environment.*;
+import gui.BorderButton;
+import gui.Pushbutton;
 import javadraw.*;
 import monster.*;
 import player.*;
 import battle.*;
+import java.util.*;
 
 public class Main extends Window {
 
-    DesertMap mapTest;
+    WorldMap mapTest;
+    ArrayList<WorldMap> maps = new ArrayList<WorldMap>();
     Player playerOne;
     boolean leftDown = false;
     boolean rightDown = false;
@@ -16,13 +19,19 @@ public class Main extends Window {
     boolean downDown = false;
     boolean mouseDown = false;
     boolean inBattle = false;
+    boolean inMapSelector = false;
     Battle currentBattle;
-    Location mouseLocation;
+    Location mouseLocation = new Location(0, 0);
 
     public void start() {
 
-        mapTest = new DesertMap(screen,200, 200, 32);
+        maps.add(new IceMap(screen, 200, 200, 32));
+        maps.get(0).visible(false);
+        maps.add(new DesertMap(screen, 200, 200, 32));
+        mapTest = maps.get(1);
         playerOne = new Player(screen, 32);
+        BorderButton mapSelector = new BorderButton(screen, "CHANGE MAP", 10, 10, 150,50,
+                8, Color.BLACK, mapTest.environment().color(), Color.WHITE, Color.BLACK);
 
         while (true) {
 
@@ -42,6 +51,15 @@ public class Main extends Window {
             } else {
 
                 movementHandler();
+                mapSelector.hoverCheck(mouseLocation);
+
+                if (mouseDown && mapSelector.box().contains(mouseLocation)) {
+
+                    Rectangle menuBorder = new Rectangle (screen, 0, 0, 800, 416, Color.BLACK);
+                    Rectangle menuBackground = new Rectangle (screen, 15, 15, 770, 386,
+                            mapTest.environment().color());
+
+                }
 
             }
 
@@ -124,6 +142,8 @@ public class Main extends Window {
     }
 
     public void keyDown(Key key) {
+
+        System.out.println(key);
 
         if (key == Key.LEFT) {
 

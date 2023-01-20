@@ -4,7 +4,7 @@ import javadraw.Text;
 
 import java.util.ArrayList;
 
-abstract class Monster {
+public abstract class Monster {
 
     private int level;
     //fireAttack, waterAttack, poisonAttack, fireDefense, waterDefense, poisonDefense,
