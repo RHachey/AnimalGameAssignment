@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="added armadillo and desert biome">
-      <change afterPath="$PROJECT_DIR$/src/gui/BorderButton.java" afterDir="false" />
+    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="started working on a way to switch between maps">
+      <change afterPath="$PROJECT_DIR$/src/gui/BorderRectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/environment/WorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/environment/WorldMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Pushbutton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Pushbutton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monster/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/Monster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674151065827</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="started working on a way to switch between maps">
+      <created>1674234264716</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1674234264716</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -227,7 +232,8 @@
     <MESSAGE value="the battles now have winners, and can be exited upon completion" />
     <MESSAGE value="added penguin monster" />
     <MESSAGE value="added armadillo and desert biome" />
-    <option name="LAST_COMMIT_MESSAGE" value="added armadillo and desert biome" />
+    <MESSAGE value="started working on a way to switch between maps" />
+    <option name="LAST_COMMIT_MESSAGE" value="started working on a way to switch between maps" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

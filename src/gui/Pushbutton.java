@@ -61,6 +61,12 @@ public class Pushbutton {
 
     }
 
+    public void idleColor(Color color) {
+
+        this.idleColor = color;
+
+    }
+
     public void hoverCheck(Location location) {
 
         if (this.box.contains(location)) {

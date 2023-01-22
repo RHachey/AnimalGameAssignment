@@ -1,7 +1,7 @@
 import enums.Direction;
+import enums.Environment;
 import environment.*;
-import gui.BorderButton;
-import gui.Pushbutton;
+import gui.*;
 import javadraw.*;
 import monster.*;
 import player.*;
@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Main extends Window {
 
-    WorldMap mapTest;
+    int currentMap;
     ArrayList<WorldMap> maps = new ArrayList<WorldMap>();
     Player playerOne;
     boolean leftDown = false;
@@ -22,16 +22,30 @@ public class Main extends Window {
     boolean inMapSelector = false;
     Battle currentBattle;
     Location mouseLocation = new Location(0, 0);
+    BorderRectangle menuBackground;
+    BorderButton tundraSelector;
+    BorderButton desertSelector;
+    BorderButton forestSelector;
 
     public void start() {
 
         maps.add(new IceMap(screen, 200, 200, 32));
-        maps.get(0).visible(false);
         maps.add(new DesertMap(screen, 200, 200, 32));
-        mapTest = maps.get(1);
+        maps.get(1).visible(false);
+        currentMap = 0;
         playerOne = new Player(screen, 32);
         BorderButton mapSelector = new BorderButton(screen, "CHANGE MAP", 10, 10, 150,50,
-                8, Color.BLACK, mapTest.environment().color(), Color.WHITE, Color.BLACK);
+                8, Color.BLACK, maps.get(currentMap).environment().color(), Color.WHITE, Color.BLACK);
+        menuBackground = new BorderRectangle(screen, 0, 0, 800, 416, 15, Color.BLACK,
+                maps.get(currentMap).environment().color());
+        tundraSelector = new BorderButton(screen, "TUNDRA", 30, 30, 237, 60, 8,
+                Color.BLACK, Environment.ICE.color(), Color.WHITE, Color.BLACK);
+        desertSelector = new BorderButton(screen, "DESERT", 282, 30, 236, 60, 8,
+                Color.BLACK, Environment.DESERT.color(), Color.WHITE, Color.BLACK);
+        forestSelector = new BorderButton(screen, "FOREST", 533, 30, 237, 60, 8,
+                Color.BLACK, Environment.FOREST.color(), Color.WHITE, Color.BLACK);
+        mapSelectorShow(false);
+
 
         while (true) {
 
@@ -43,7 +57,7 @@ public class Main extends Window {
 
                 } else {
 
-                    mapTest.visible(true);
+                    maps.get(currentMap).visible(true);
                     inBattle = false;
 
                 }
@@ -55,9 +69,36 @@ public class Main extends Window {
 
                 if (mouseDown && mapSelector.box().contains(mouseLocation)) {
 
-                    Rectangle menuBorder = new Rectangle (screen, 0, 0, 800, 416, Color.BLACK);
-                    Rectangle menuBackground = new Rectangle (screen, 15, 15, 770, 386,
-                            mapTest.environment().color());
+                    mapSelectorShow(true);
+                    inMapSelector = true;
+                    mouseDown = false;
+
+                    while (inMapSelector) {
+
+                        tundraSelector.hoverCheck(mouseLocation);
+                        desertSelector.hoverCheck(mouseLocation);
+                        forestSelector.hoverCheck(mouseLocation);
+
+                        if (mouseDown && tundraSelector.box().contains(mouseLocation)) {
+
+                            maps.get(0).visible(true);
+                            maps.get(1).visible(false);
+                            currentMap = 0;
+                            inMapSelector = false;
+
+                        } else if (mouseDown && desertSelector.box().contains(mouseLocation)) {
+
+                            maps.get(0).visible(false);
+                            maps.get(1).visible(true);
+                            currentMap = 1;
+                            inMapSelector = false;
+
+                        }
+
+                    }
+
+                    mapSelector.idleColor(maps.get(currentMap).environment().color());
+                    mapSelectorShow(false);
 
                 }
 
@@ -70,10 +111,21 @@ public class Main extends Window {
 
     }
 
+    public void mapSelectorShow(boolean visible) {
+
+        menuBackground.mainColor(maps.get(currentMap).environment().color());
+        menuBackground.visible(visible);
+        desertSelector.visible(visible);
+        tundraSelector.visible(visible);
+        forestSelector.visible(visible);
+
+    }
+
     public void startBattle() {
 
-        mapTest.visible(false);
-        currentBattle = new Battle(screen, new PlayerMonster(), mapTest.randomMonster(0), mapTest.environment());
+        maps.get(currentMap).visible(false);
+        currentBattle = new Battle(screen, new PlayerMonster(), maps.get(currentMap).randomMonster(0),
+                maps.get(currentMap).environment());
         currentBattle.begin();
 
     }
@@ -84,25 +136,25 @@ public class Main extends Window {
 
         if (leftDown) {
 
-            hasMoved = mapTest.mapMove(Direction.LEFT);
+            hasMoved = maps.get(currentMap).mapMove(Direction.LEFT);
 
         }
 
         if (rightDown) {
 
-            hasMoved = mapTest.mapMove(Direction.RIGHT);
+            hasMoved = maps.get(currentMap).mapMove(Direction.RIGHT);
 
         }
 
         if (upDown) {
 
-            hasMoved = mapTest.mapMove(Direction.UP);
+            hasMoved = maps.get(currentMap).mapMove(Direction.UP);
 
         }
 
         if (downDown) {
 
-            hasMoved = mapTest.mapMove(Direction.DOWN);
+            hasMoved = maps.get(currentMap).mapMove(Direction.DOWN);
 
         }
 
