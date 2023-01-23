@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/23
+ * A child of BorderButton, a button with a border that has a box with information pop up when you hover over it
+ */
+
 package gui;
 import javadraw.*;
 
