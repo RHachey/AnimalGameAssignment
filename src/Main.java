@@ -5,7 +5,6 @@
 * various monsters in various environments
 */
 
-
 import enums.*;
 import environment.*;
 import gui.*;
@@ -343,7 +342,7 @@ public class Main extends Window {
 
         }
 
-        if (moveAttempts == 3) {
+        if (moveAttempts <= 3) {
 
             moveAttempts = 0;
 

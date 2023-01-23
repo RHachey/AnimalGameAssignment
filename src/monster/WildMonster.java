@@ -51,11 +51,20 @@ public class WildMonster extends Monster {
 
     }
 
+    /**
+     * Centers the sprite on a location
+     * @param location
+     */
+
     public void center(Location location) {
 
         this.sprite.center(location);
 
     }
+
+    /**
+     * Moves the sprite to the front of the screen
+     */
 
     public void front() {
 
