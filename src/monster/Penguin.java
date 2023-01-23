@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the WildMonster class, a penguin, an attack based ice monster
+ */
+
 package monster;
 import enums.*;
 import javadraw.*;

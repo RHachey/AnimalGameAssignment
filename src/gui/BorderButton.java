@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the Button class, has exactly the same functionality but has a border
+ */
+
 package gui;
 
 import javadraw.*;
@@ -16,6 +22,8 @@ public class BorderButton extends Pushbutton {
         this.order();
 
     }
+
+    //setter (overrides parent)
 
     public void visible(boolean visible) {
 

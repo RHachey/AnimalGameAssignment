@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the WildMonster class, a polar bear, a defense based ice monster
+ */
+
 package monster;
 import javadraw.*;
 import enums.*;

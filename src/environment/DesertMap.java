@@ -1,8 +1,14 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the WorldMap class, a desert map that uses specific images and has specific monsters to fight
+ */
+
+
 package environment;
 import enums.Environment;
 import javadraw.*;
-import monster.Armadillo;
-import monster.WildMonster;
+import monster.*;
 
 public class DesertMap extends WorldMap {
 
@@ -11,6 +17,10 @@ public class DesertMap extends WorldMap {
         super(screen, width, height, imageSize, Environment.DESERT);
 
     }
+
+    /**
+     * Updates which images should be visible based on the current location of the player and generated noise
+     */
 
     @Override
     public void render() {
@@ -44,6 +54,10 @@ public class DesertMap extends WorldMap {
 
     }
 
+    /**
+     * Creates all the images required to create the map in full, taking up the whole screen
+     */
+
     @Override
     public void generateImages() {
 
@@ -63,6 +77,12 @@ public class DesertMap extends WorldMap {
         }
 
     }
+
+    /**
+     * Randomly generates a monster for the player to battle
+     * @param level: the level that the monster should be
+     * @return: the monster to battle
+     */
 
     @Override
     public WildMonster randomMonster(int level) {

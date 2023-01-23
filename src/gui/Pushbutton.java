@@ -1,3 +1,10 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * A rectangle that can be used as a button, as it adds additional behaviours to it, as well as makes it easier
+ * to handle then a bunch of independent shapes
+ */
+
 package gui;
 
 import javadraw.*;
@@ -27,6 +34,10 @@ public class Pushbutton {
 
     }
 
+    /**
+     * Correctly orders the elements of the button
+     */
+
     protected void order() {
 
         this.box.front();
@@ -34,11 +45,15 @@ public class Pushbutton {
 
     }
 
+    //getter
+
     public String text() {
 
         return this.text.text();
 
     }
+
+    //setter
 
     public void text(String text) {
 
@@ -48,11 +63,15 @@ public class Pushbutton {
 
     }
 
+    //getter
+
     public Rectangle box() {
 
         return this.box;
 
     }
+
+    //setter
 
     public void visible(boolean visible) {
 
@@ -61,11 +80,15 @@ public class Pushbutton {
 
     }
 
+    //getter
+
     public boolean visible() {
 
         return this.box.visible();
 
     }
+
+    //setter
 
     public void idleColor(Color color) {
 
@@ -73,6 +96,11 @@ public class Pushbutton {
         this.box.color(idleColor);
 
     }
+
+    /**
+     * If hovered, the button will change color, letting the user know it has functionality
+     * @param location: the location of the mouse
+     */
 
     public void hoverCheck(Location location) {
 

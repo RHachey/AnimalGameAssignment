@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Contains all the defenses in the game and their properties
+ */
+
 package enums;
 
 public enum Defense {
@@ -13,17 +19,23 @@ public enum Defense {
     private int type;
     private String defenseName;
 
+    //getter
+
     public String defenseName() {
 
         return defenseName;
 
     }
 
+    //getter
+
     public int element() {
 
         return element;
 
     }
+
+    //getter
 
     public int type() {
 

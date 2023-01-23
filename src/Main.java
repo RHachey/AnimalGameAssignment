@@ -1,3 +1,11 @@
+/*
+* Rylan Hachey
+* 1/22/2023
+* This program is a Pokémon like game where the player is pitted against
+* various monsters in various environments
+*/
+
+
 import enums.*;
 import environment.*;
 import gui.*;
@@ -34,6 +42,8 @@ public class Main extends Window {
 
     public void start() {
 
+        //Setting up maps and gui elements
+
         playerMonster = new PlayerMonster();
         maps.add(new IceMap(screen, 200, 200, 32));
         maps.add(new DesertMap(screen, 200, 200, 32));
@@ -61,6 +71,8 @@ public class Main extends Window {
 
         while (true) {
 
+            //Controls what happens when in battle
+
             if (inBattle) {
 
                 if (!currentBattle.isReallyOver()) {
@@ -87,11 +99,15 @@ public class Main extends Window {
 
             } else {
 
+                //Controls what happens when in the overworld
+
                 movementHandler();
                 mapSelector.hoverCheck(mouseLocation);
                 statIncreaser.hoverCheck(mouseLocation);
 
                 if (mouseDown && mapSelector.box().contains(mouseLocation)) {
+
+                    //Controls what happens when in the map selector menu
 
                     mapSelectorShow(true);
                     inMenu = true;
@@ -136,6 +152,8 @@ public class Main extends Window {
                     mapSelectorShow(false);
 
                 } else if (mouseDown && statIncreaser.box().contains(mouseLocation)) {
+
+                    //Controls what happens when in the stat increaser menu
 
                     statIncreaserShow(true);
                     inMenu = true;
@@ -183,6 +201,11 @@ public class Main extends Window {
 
     }
 
+    /**
+     * This method will either show or make the stat increaser menu invisible, updating the color in the process
+     * @param visible: if the menu should be shown or not
+     */
+
     public void statIncreaserShow(boolean visible) {
 
         menuBackground.mainColor(maps.get(currentMap).environment().color());
@@ -200,6 +223,10 @@ public class Main extends Window {
         }
 
     }
+
+    /**
+     * Creates all the buttons for the stats increaser menu
+     */
 
     public void setUpStatIncreaser() {
 
@@ -228,6 +255,11 @@ public class Main extends Window {
 
     }
 
+    /**
+     * Will either show or remove the mapSelector menu from the screen
+     * @param visible: if the menu will be shown or not
+     */
+
     public void mapSelectorShow(boolean visible) {
 
         menuBackground.mainColor(maps.get(currentMap).environment().color());
@@ -238,6 +270,11 @@ public class Main extends Window {
 
     }
 
+    /**
+     * Creates a new battle between the player and a randomly generated monster (based on environment)
+     * Also starts the battle
+     */
+
     public void startBattle() {
 
         maps.get(currentMap).visible(false);
@@ -246,6 +283,11 @@ public class Main extends Window {
         currentBattle.begin();
 
     }
+
+    /**
+     * Checks if the player has moved will the arrows keys
+     * If the player has moved there is a random chance a battle will start
+     */
 
     public void movementHandler() {
 
@@ -275,7 +317,7 @@ public class Main extends Window {
 
         }
 
-        if (hasMoved && Math.random() * 20 < 1) {
+        if (hasMoved && Math.random() * 50 < 1) {
 
             inBattle = true;
             startBattle();
@@ -284,11 +326,23 @@ public class Main extends Window {
 
     }
 
+    /**
+     * Gets the location of the mouse on the screen and assigns it to a variable so it can be used throughout
+     * the program
+     * @param location: the location of the mouse
+     */
+
     public void mouseMove(Location location) {
 
         mouseLocation = location;
 
     }
+
+    /**
+     * If the user left clicks, a variable will store that the mouse is down
+     * @param location: location of the click
+     * @param button: what mouse button was clicked
+     */
 
     public void mouseDown(Location location, int button) {
 
@@ -300,6 +354,12 @@ public class Main extends Window {
 
     }
 
+    /**
+     * If the user release left click, a variable will store the mouse is up
+     * @param location: location of the click
+     * @param button: mouse button that was clicked
+     */
+
     public void mouseUp(Location location, int button) {
 
         if (button == 1) {
@@ -309,6 +369,11 @@ public class Main extends Window {
         }
 
     }
+
+    /**
+     * Checks the key that was down, setting a variable is true if it is down
+     * @param key: the key that was pressed
+     */
 
     public void keyDown(Key key) {
 
@@ -333,6 +398,11 @@ public class Main extends Window {
         }
 
     }
+
+    /**
+     * Checks if a key is releases, setting a variable to false if it's up
+     * @param key: the key that was pressed
+     */
 
     public void keyUp(Key key) {
 

@@ -1,3 +1,10 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Contains all the environments in the game and their properties
+ */
+
+
 package enums;
 
 import javadraw.*;
@@ -13,11 +20,19 @@ public enum Environment {
     private double poisonMod;
     private Color color;
 
+    //getter
+
     public Color color() {
 
         return this.color;
 
     }
+
+    /**
+     * Will return the correct modifier based on the number (from index of the stat array) passed
+     * @param n: the index of the stat array passes
+     * @return: the corresponding elemental modifier
+     */
 
     public double mod(int n) {
 

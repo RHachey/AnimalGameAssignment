@@ -1,5 +1,12 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Contains all the gui elements for the player's character
+ */
+
 package player;
 import javadraw.*;
+
 public class Player {
 
     private Image sprite;
@@ -16,12 +23,20 @@ public class Player {
 
     }
 
+    /**
+     * Moves the sprite of the player to the middle tile of the map
+     */
+
     private void center() {
 
         this.sprite.moveTo((double) (800 / this.imageSize / 2 * this.imageSize),
                 (double) (416 / this.imageSize / 2 * this.imageSize));
 
     }
+
+    /**
+     * Moves the player to the front of the screen
+     */
 
     public void toFront() {
 

@@ -1,3 +1,9 @@
+/*
+* From alksily on GitHub
+* 01/22/2023
+* Perlin noise generator
+*/
+
 package noise;
 import java.util.Random;
 

@@ -1,3 +1,9 @@
+/*
+* Rylan Hachey
+* 01/22/2023
+* Contains all the attacks in the game and their properties
+*/
+
 package enums;
 
 public enum Attack {
@@ -13,17 +19,23 @@ public enum Attack {
     private int type;
     private String attackName;
 
+    //getter
+
     public String attackName() {
 
         return this.attackName;
 
     }
 
+    //getter
+
     public int element() {
 
         return element;
 
     }
+
+    //getter
 
     public int type() {
 

@@ -1,3 +1,10 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the Monster class, a cpu controlled monster that has an image to be displayed when in a battle, as well as
+ * random(ish) stats and a type name
+ */
+
 package monster;
 import javadraw.*;
 import enums.*;
@@ -20,17 +27,23 @@ public class WildMonster extends Monster {
 
     }
 
-    public void visible(boolean bool) {
+    //setter
 
-        this.sprite.visible(false);
+    public void visible(boolean visible) {
+
+        this.sprite.visible(visible);
 
     }
+
+    //getter
 
     public Image sprite() {
 
         return sprite;
 
     }
+
+    //getter
 
     public String name() {
 

@@ -1,3 +1,10 @@
+/*
+* Rylan Hachey
+* 1/22/2023
+* All the gui elements and behaviours of a player vs cpu battle are contained in the class
+* While active, essentially pauses the rest of the program
+*/
+
 package battle;
 import enums.*;
 import gui.*;
@@ -46,11 +53,20 @@ public class Battle {
 
     }
 
+    /**
+     * Checks if the player or monster has won the battle
+     * @return if the player has won the battle
+     */
+
     public boolean hasPlayerWon() {
 
         return this.playerMonster.stats()[9] != 0;
 
     }
+
+    /**
+     * Animates the cpu monster when it gets hit
+     */
 
     private void hitAnimation() {
 
@@ -98,6 +114,11 @@ public class Battle {
 
     }
 
+    /**
+     * This executes the player part of the turn, like if their attack is dodged or how much damage it does
+     * @param cpuDefense: the defense move the cpu is using
+     */
+
     private void playerTurn(Defense cpuDefense) {
 
         double dodgeChance;
@@ -117,7 +138,11 @@ public class Battle {
 
         }
 
+        //Can only dodge/block if attack and defense types are the same
+
         if (cpuDefense.type() == this.currentAttack.type() && Math.random() < dodgeChance) {
+
+            //If dodged
 
             String slowTextString = "You used " + this.currentAttack.attackName() + "!\nThe "
                     + this.cpuMonster.name() + " used " + cpuDefense.defenseName() + "!\n";
@@ -135,6 +160,8 @@ public class Battle {
             this.slowText(slowTextString);
 
         } else {
+
+            //If hit
 
             //effective defense = element defense (double if correct type) +
             //defense type (double if correct type) + attack element defense
@@ -174,6 +201,11 @@ public class Battle {
         }
 
     }
+
+    /**
+     * Same as the playerTurn method, but for the computer
+     * @param cpuAttack: the attack move the cpu is using
+     */
 
     private void cpuTurn(Attack cpuAttack) {
 
@@ -248,6 +280,11 @@ public class Battle {
 
     }
 
+    /**
+     * Randomly decides the cpu's attack and defense moves as well as determining who goes first using the speed stat
+     * Also calls the playerTurn and cpuTurn methods, and checks if the battle has ended
+     */
+
     private void doRound() {
 
         Attack cpuCurrentAttack = this.cpuMonster.attacks().get((int)
@@ -299,6 +336,12 @@ public class Battle {
         }
 
     }
+
+    /**
+     * Checks if any of the buttons have been pressed, and executes the appropriate behaviour
+     * @param mouseLocation: the location of the mouse
+     * @param click: if the mouse has been clicked
+     */
 
     public void checkButtons(Location mouseLocation, boolean click) {
 
@@ -353,6 +396,12 @@ public class Battle {
 
     }
 
+    /**
+     * Changes the player's HP, making sure it doesn't drop below 0
+     * Also adds a cool animation
+     * @param damage: the amount of damage taken
+     */
+
     private void changePlayerHP(int damage) {
 
         this.playerMonster.stats()[9] = Math.max(0, this.playerMonster.stats()[9] - damage);
@@ -367,6 +416,11 @@ public class Battle {
         }
 
     }
+
+    /**
+     * The same thing as the changePlayerHP but for the computer
+     * @param damage: the amount of damage taken
+     */
 
     private void changeCpuHP(int damage) {
 
@@ -383,6 +437,11 @@ public class Battle {
 
     }
 
+    /**
+     * Updates the text in the text box with a cool animation
+     * @param string: the text to be displayed
+     */
+
     private void slowText(String string) {
 
         this.scrollText.text("");
@@ -395,6 +454,10 @@ public class Battle {
         }
 
     }
+
+    /**
+     * Sets up all the buttons
+     */
 
     private void setUpButtons() {
 
@@ -416,6 +479,10 @@ public class Battle {
         }
 
     }
+
+    /**
+     * Ends the battle, making all GUI elements invisible
+     */
 
     public void end() {
 
@@ -450,6 +517,10 @@ public class Battle {
         }
 
     }
+
+    /**
+     * Begins the battle by creating all the gui elements
+     */
 
     public void begin() {
 
@@ -487,6 +558,8 @@ public class Battle {
 
 
     }
+
+    //getter
 
     public boolean isReallyOver() {
 

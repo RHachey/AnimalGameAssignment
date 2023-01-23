@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the WorldMap class, a tundra map that uses specific images and has specific monsters to fight
+ */
+
 package environment;
 import enums.Environment;
 import javadraw.*;
@@ -10,6 +16,10 @@ public class IceMap extends WorldMap {
         super(screen, width, height, imageSize, Environment.ICE);
 
     }
+
+    /**
+     * Updates which images should be visible based on the current location of the player and generated noise
+     */
 
     @Override
     public void render() {
@@ -43,6 +53,10 @@ public class IceMap extends WorldMap {
 
     }
 
+    /**
+     * Creates all the images required to create the map in full, taking up the whole screen
+     */
+
     @Override
     public void generateImages() {
 
@@ -62,6 +76,12 @@ public class IceMap extends WorldMap {
         }
 
     }
+
+    /**
+     * Randomly generates a monster for the player to battle
+     * @param level: the level that the monster should be
+     * @return: the monster to battle
+     */
 
     @Override
     public WildMonster randomMonster(int level) {

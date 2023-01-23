@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the WildMonster class, a fox, an attack based forest monster
+ */
+
 package monster;
 import enums.*;
 import javadraw.*;

@@ -1,6 +1,11 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * A monster that can participate in battles with stats, attacks, and defenses
+ */
+
 package monster;
 import enums.*;
-
 import java.util.ArrayList;
 
 public abstract class Monster {
@@ -23,16 +28,18 @@ public abstract class Monster {
 
             for (int i = 0; i < 9; i++) {
 
-                this.stats[i] += (int) (Math.random() * 5) + this.level;
+                this.stats[i] += (int) (Math.random() * 3) + this.level;
 
             }
 
-            this.stats[9] += (int) (Math.random() * 10) + this.level;
+            this.stats[9] += (int) (Math.random() * 6) + this.level;
             this.stats[10] = this.stats[9];
 
         }
 
     }
+
+    //getter
 
     public int[] stats() {
 
@@ -40,11 +47,15 @@ public abstract class Monster {
 
     }
 
+    //getter
+
     public ArrayList<Attack> attacks() {
 
         return this.attacks;
 
     }
+
+    //getter
 
     public ArrayList<Defense> defenses() {
 

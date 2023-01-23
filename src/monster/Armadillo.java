@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the WildMonster class, an armadillo, a defense based desert monster
+ */
+
 package monster;
 import enums.*;
 import javadraw.*;

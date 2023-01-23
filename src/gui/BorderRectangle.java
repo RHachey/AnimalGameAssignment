@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Made it easier for myself to make a rectangle with a border
+ */
+
 package gui;
 import javadraw.*;
 
@@ -15,12 +21,16 @@ public class BorderRectangle {
 
     }
 
+    //setter
+
     public void visible(boolean visible) {
 
         this.border.visible(visible);
         this.box.visible(visible);
 
     }
+
+    //setter
 
     public void mainColor(Color color) {
 

@@ -1,3 +1,9 @@
+/*
+ * Rylan Hachey
+ * 01/22/2023
+ * Child of the Monster class, a specific monster for the player, will non-random stats
+ */
+
 package monster;
 import enums.*;
 import java.util.ArrayList;
