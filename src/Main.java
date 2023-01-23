@@ -39,6 +39,7 @@ public class Main extends Window {
     ArrayList<BorderButton> statButtons = new ArrayList<BorderButton>();
     int currentPoints = 0;
     int allTimePoints = 0;
+    int moveAttempts = 0;
 
     public void start() {
 
@@ -195,7 +196,7 @@ public class Main extends Window {
             }
 
             screen.update();
-            screen.sleep(1/60.0);
+            screen.sleep(1/30.0);
 
         }
 
@@ -295,25 +296,56 @@ public class Main extends Window {
 
         if (leftDown) {
 
-            hasMoved = maps.get(currentMap).mapMove(Direction.LEFT);
+            if (moveAttempts == 0) {
+
+                hasMoved = maps.get(currentMap).mapMove(Direction.LEFT);
+
+            }
+
+            moveAttempts++;
 
         }
 
         if (rightDown) {
 
-            hasMoved = maps.get(currentMap).mapMove(Direction.RIGHT);
+            if (moveAttempts == 0) {
+
+                hasMoved = maps.get(currentMap).mapMove(Direction.RIGHT);
+
+
+            }
+
+            moveAttempts++;
 
         }
 
         if (upDown) {
 
-            hasMoved = maps.get(currentMap).mapMove(Direction.UP);
+            if (moveAttempts == 0) {
+
+                hasMoved = maps.get(currentMap).mapMove(Direction.UP);
+
+            }
+
+            moveAttempts++;
 
         }
 
         if (downDown) {
 
-            hasMoved = maps.get(currentMap).mapMove(Direction.DOWN);
+            if (moveAttempts == 0) {
+
+                hasMoved = maps.get(currentMap).mapMove(Direction.DOWN);
+
+            }
+
+            moveAttempts++;
+
+        }
+
+        if (moveAttempts == 3) {
+
+            moveAttempts = 0;
 
         }
 
