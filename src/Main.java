@@ -277,8 +277,8 @@ public class Main extends Window {
 
         if (hasMoved && Math.random() * 20 < 1) {
 
-            //inBattle = true;
-            //startBattle();
+            inBattle = true;
+            startBattle();
 
         }
 

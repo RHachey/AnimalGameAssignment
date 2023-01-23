@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="you can now increase your stats as a player, hp will automatically increase on a will">
-      <change afterPath="$PROJECT_DIR$/images/maps/grassHigh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/maps/grassLow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/maps/grassMed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/environment/ForestMap.java" afterDir="false" />
+    <list default="true" id="65d02a0a-078e-4d93-aba8-553d88f41184" name="Changes" comment="added the final biome: forest">
+      <change afterPath="$PROJECT_DIR$/images/monsters/fox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/monster/Fox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/battle/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/battle/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Pushbutton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Pushbutton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environment/ForestMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/environment/ForestMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +66,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\maps" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\monsters" />
+      <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\maps" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\player" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\images\environment" />
       <recent name="C:\Users\hachr5773\IdeaProjects\AnimalGameAssignment\src" />
@@ -230,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674444686277</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added the final biome: forest">
+      <created>1674446071277</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1674446071277</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -253,7 +257,8 @@
     <MESSAGE value="started working on a way to switch between maps" />
     <MESSAGE value="you can now switch between maps" />
     <MESSAGE value="you can now increase your stats as a player, hp will automatically increase on a will" />
-    <option name="LAST_COMMIT_MESSAGE" value="you can now increase your stats as a player, hp will automatically increase on a will" />
+    <MESSAGE value="added the final biome: forest" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the final biome: forest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
