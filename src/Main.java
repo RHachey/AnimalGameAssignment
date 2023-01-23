@@ -30,9 +30,9 @@ public class Main extends Window {
     Battle currentBattle;
     Location mouseLocation = new Location(0, 0);
     BorderRectangle menuBackground;
-    BorderButton tundraSelector;
-    BorderButton desertSelector;
-    BorderButton forestSelector;
+    HoverBorderButton tundraSelector;
+    HoverBorderButton desertSelector;
+    HoverBorderButton forestSelector;
     BorderButton escapeStats;
     BorderButton pointsDisplay;
     ArrayList<BorderButton> statButtons = new ArrayList<BorderButton>();
@@ -58,12 +58,12 @@ public class Main extends Window {
                 8, Color.BLACK, maps.get(currentMap).environment().color(), Color.WHITE, Color.BLACK);
         menuBackground = new BorderRectangle(screen, 0, 0, 800, 416, 15, Color.BLACK,
                 maps.get(currentMap).environment().color());
-        tundraSelector = new BorderButton(screen, "TUNDRA", 30, 30, 237, 60, 8,
-                Color.BLACK, Environment.ICE.color(), Color.WHITE, Color.BLACK);
-        desertSelector = new BorderButton(screen, "DESERT", 282, 30, 236, 60, 8,
-                Color.BLACK, Environment.DESERT.color(), Color.WHITE, Color.BLACK);
-        forestSelector = new BorderButton(screen, "FOREST", 533, 30, 237, 60, 8,
-                Color.BLACK, Environment.FOREST.color(), Color.WHITE, Color.BLACK);
+        tundraSelector = new HoverBorderButton(screen, "TUNDRA", "FIRE ↓ WATER ↑ POISON =", 30,  30,
+                237, 60, 8, Color.BLACK, Environment.ICE.color(), Color.WHITE, Color.BLACK);
+        desertSelector = new HoverBorderButton(screen, "DESERT", "FIRE = WATER ↓ POISON ↑", 282, 30,
+                236, 60, 8, Color.BLACK, Environment.DESERT.color(), Color.WHITE, Color.BLACK);
+        forestSelector = new HoverBorderButton(screen, "FOREST", "FIRE ↑ WATER = POISON ↓", 533, 30,
+                237, 60, 8, Color.BLACK, Environment.FOREST.color(), Color.WHITE, Color.BLACK);
         mapSelectorShow(false);
         setUpStatIncreaser();
         statIncreaserShow(false);

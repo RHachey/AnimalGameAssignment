@@ -14,8 +14,8 @@ public class Pushbutton {
     private Screen screen;
     protected Rectangle box;
     protected Text text;
-    private Color idleColor;
-    private Color activeColor;
+    protected Color idleColor;
+    protected Color activeColor;
 
     public Pushbutton(Screen screen, String text, int x, int y, int width, int height,
                       Color textColor, Color idleColor, Color activeColor) {
@@ -29,6 +29,24 @@ public class Pushbutton {
         this.text.bold(true);
         this.text.size(15);
         this.text.color(textColor);
+        this.text.center(this.box.center());
+        this.text.y(this.text.y() - 5);
+
+    }
+
+    public void x(double x) {
+
+        this.box.x(x);
+        this.text.center(this.box.center());
+        this.text.y(this.text.y() - 5);
+
+    }
+
+    //setter
+
+    public void y(double y) {
+
+        this.box.y(y);
         this.text.center(this.box.center());
         this.text.y(this.text.y() - 5);
 

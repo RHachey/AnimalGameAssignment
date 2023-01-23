@@ -10,7 +10,8 @@ import javadraw.*;
 
 public class BorderButton extends Pushbutton {
 
-    Rectangle border;
+    protected Rectangle border;
+    private int borderThickness;
 
     public BorderButton (Screen screen, String text, int x, int y, int width, int height, int borderThickness,
                          Color textColor, Color idleColor, Color activeColor, Color borderColor) {
@@ -19,7 +20,20 @@ public class BorderButton extends Pushbutton {
                 height - borderThickness * 2, textColor, idleColor,
                 activeColor);
         this.border = new Rectangle(screen, x, y, width, height, borderColor);
+        this.borderThickness = borderThickness;
         this.order();
+
+    }
+
+    /**
+     * Sends the button to the front of the screen
+     */
+
+    public void front() {
+
+        this.border.front();
+        this.box.front();
+        this.text.front();
 
     }
 
@@ -30,6 +44,28 @@ public class BorderButton extends Pushbutton {
         this.box.visible(visible);
         this.text.visible(visible);
         this.border.visible(visible);
+
+    }
+
+    //setter
+
+    public void x(double x) {
+
+        this.border.x(x);
+        this.box.x(x + this.borderThickness);
+        this.text.center(this.box.center());
+        this.text.y(this.text.y() - 5);
+
+    }
+
+    //setter
+
+    public void y(double y) {
+
+        this.border.y(y);
+        this.box.y(y + this.borderThickness);
+        this.text.center(this.box.center());
+        this.text.y(this.text.y() - 5);
 
     }
 
