@@ -37,7 +37,9 @@ public class Main extends Window {
         playerMonster = new PlayerMonster();
         maps.add(new IceMap(screen, 200, 200, 32));
         maps.add(new DesertMap(screen, 200, 200, 32));
+        maps.add(new ForestMap(screen, 200, 200, 32));
         maps.get(1).visible(false);
+        maps.get(2).visible(false);
         currentMap = 0;
         playerOne = new Player(screen, 32);
         BorderButton statIncreaser = new BorderButton(screen, "INCREASE STATS", 640, 10, 150, 50,
@@ -105,6 +107,7 @@ public class Main extends Window {
 
                             maps.get(0).visible(true);
                             maps.get(1).visible(false);
+                            maps.get(2).visible(false);
                             currentMap = 0;
                             inMenu = false;
 
@@ -112,7 +115,16 @@ public class Main extends Window {
 
                             maps.get(0).visible(false);
                             maps.get(1).visible(true);
+                            maps.get(2).visible(false);
                             currentMap = 1;
+                            inMenu = false;
+
+                        } else if (mouseDown && forestSelector.box().contains(mouseLocation)) {
+
+                            maps.get(0).visible(false);
+                            maps.get(1).visible(false);
+                            maps.get(2).visible(true);
+                            currentMap = 2;
                             inMenu = false;
 
                         }
@@ -120,6 +132,7 @@ public class Main extends Window {
                     }
 
                     mapSelector.idleColor(maps.get(currentMap).environment().color());
+                    statIncreaser.idleColor(maps.get(currentMap).environment().color());
                     mapSelectorShow(false);
 
                 } else if (mouseDown && statIncreaser.box().contains(mouseLocation)) {
@@ -264,8 +277,8 @@ public class Main extends Window {
 
         if (hasMoved && Math.random() * 20 < 1) {
 
-            inBattle = true;
-            startBattle();
+            //inBattle = true;
+            //startBattle();
 
         }
 

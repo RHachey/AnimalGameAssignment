@@ -70,6 +70,7 @@ public class Pushbutton {
     public void idleColor(Color color) {
 
         this.idleColor = color;
+        this.box.color(idleColor);
 
     }
 

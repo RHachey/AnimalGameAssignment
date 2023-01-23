@@ -32,7 +32,7 @@ public class Battle {
     private ArrayList<Pushbutton> defenseButtons;
     private Attack currentAttack;
     private Defense currentDefense;
-    private Pushbutton confirmButton;
+    private BorderButton confirmButton;
     private boolean isOver = false;
     private boolean isReallyOver = false;
 
@@ -479,8 +479,8 @@ public class Battle {
                 "Monospaced", 12, "center", true, false, false,
                 false, 0, true);
         this.setUpButtons();
-        this.confirmButton = new Pushbutton(this.screen, "GO!", 664, 280, 116, 116,
-                mainColor, accentColor, Color.GRAY);
+        this.confirmButton = new BorderButton(this.screen, "GO!", 664, 280, 116, 116,
+                8, accentColor, mainColor, Color.WHITE, accentColor);
         this.confirmButton.visible(false);
         this.cpuMonster.center(new Location(400, 195));
         this.cpuMonster.front();
