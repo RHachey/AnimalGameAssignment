@@ -1,6 +1,5 @@
 package monster;
 import enums.*;
-import javadraw.Text;
 
 import java.util.ArrayList;
 

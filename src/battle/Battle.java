@@ -46,6 +46,12 @@ public class Battle {
 
     }
 
+    public boolean hasPlayerWon() {
+
+        return this.playerMonster.stats()[9] != 0;
+
+    }
+
     private void hitAnimation() {
 
         for (int i = 0; i < 5; i++) {

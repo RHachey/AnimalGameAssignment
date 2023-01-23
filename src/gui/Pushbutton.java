@@ -34,6 +34,12 @@ public class Pushbutton {
 
     }
 
+    public String text() {
+
+        return this.text.text();
+
+    }
+
     public void text(String text) {
 
         this.text.text(text);
