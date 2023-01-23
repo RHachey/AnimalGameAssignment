@@ -36,13 +36,23 @@ public class HoverButton extends Pushbutton {
 
         if (this.box.contains(location)) {
 
-            if (this.hoverBox.box.x() != location.x() || this.hoverBox.box.y() != location.y()) {
+            if (!((this.hoverBox.box.x() == location.x() || this.hoverBox.box.x() ==
+                    location.x() - this.hoverBox.box.width()) && this.hoverBox.box.y() == location.y())) {
 
                 this.box.color(this.activeColor);
                 this.hoverBox.order();
-                this.hoverBox.x(location.x());
                 this.hoverBox.y(location.y());
                 this.hoverBox.visible(true);
+
+                if (this.box.width() + location.x() < 790) {
+
+                    this.hoverBox.x(location.x());
+
+                } else {
+
+                    this.hoverBox.x(location.x() - this.hoverBox.box.width());
+
+                }
 
             }
 

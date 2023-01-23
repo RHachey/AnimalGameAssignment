@@ -37,13 +37,23 @@ public class HoverBorderButton extends BorderButton {
 
         if (this.box.contains(location)) {
 
-            if (this.hoverBox.border.x() != location.x() || this.hoverBox.border.y() != location.y()) {
+            if (!((this.hoverBox.border.x() == location.x() || this.hoverBox.border.x() ==
+                    location.x() - this.hoverBox.border.width()) && this.hoverBox.border.y() == location.y())) {
 
                 this.box.color(this.activeColor);
                 this.hoverBox.front();
-                this.hoverBox.x(location.x());
                 this.hoverBox.y(location.y());
                 this.hoverBox.visible(true);
+
+                if (this.border.width() + location.x() < 785) {
+
+                    this.hoverBox.x(location.x());
+
+                } else {
+
+                    this.hoverBox.x(location.x() - this.hoverBox.border.width());
+
+                }
 
             }
 

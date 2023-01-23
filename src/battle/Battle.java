@@ -35,8 +35,8 @@ public class Battle {
     private Rectangle defensesLabel;
     private Text attacksText;
     private Text defensesText;
-    private ArrayList<Pushbutton> attackButtons;
-    private ArrayList<Pushbutton> defenseButtons;
+    private ArrayList<HoverButton> attackButtons;
+    private ArrayList<HoverButton> defenseButtons;
     private Attack currentAttack;
     private Defense currentDefense;
     private BorderButton confirmButton;
@@ -461,20 +461,72 @@ public class Battle {
 
     private void setUpButtons() {
 
-        attackButtons = new ArrayList<Pushbutton>();
-        defenseButtons = new ArrayList<Pushbutton>();
+        attackButtons = new ArrayList<HoverButton>();
+        defenseButtons = new ArrayList<HoverButton>();
 
         for (int i = 0; i < this.playerMonster.attacks().size(); i++) {
 
-            this.attackButtons.add(new Pushbutton(this.screen, this.playerMonster.attacks().get(i).attackName(),
-                    20, 70 + i * 35, 240, 25, mainColor, accentColor, Color.GRAY));
+            String hoverText = "";
+
+            if (this.playerMonster.attacks().get(i).element() == 0) {
+
+                hoverText += "FIRE, ";
+
+            } else if (this.playerMonster.attacks().get(i).element() == 1) {
+
+                hoverText += "WATER, ";
+
+            } else {
+
+                hoverText += "POISON, ";
+
+            }
+
+            if (this.playerMonster.attacks().get(i).type() == 6) {
+
+                hoverText += "STRENGTH";
+
+            } else {
+
+                hoverText += "FINESSE";
+
+            }
+
+            this.attackButtons.add(new HoverButton(this.screen, this.playerMonster.attacks().get(i).attackName(),
+                    hoverText, 20, 70 + i * 35, 240, 25, mainColor, accentColor, Color.GRAY));
 
         }
 
         for (int i = 0; i < this.playerMonster.defenses().size(); i++) {
 
-            this.defenseButtons.add(new Pushbutton(this.screen, this.playerMonster.defenses().get(i).defenseName(),
-                    540, 70 + i * 35, 240, 25, mainColor, accentColor, Color.GRAY));
+            String hoverText = "";
+
+            if (this.playerMonster.defenses().get(i).element() == 3) {
+
+                hoverText += "FIRE, ";
+
+            } else if (this.playerMonster.defenses().get(i).element() == 4) {
+
+                hoverText += "WATER, ";
+
+            } else {
+
+                hoverText += "POISON, ";
+
+            }
+
+            if (this.playerMonster.defenses().get(i).type() == 6) {
+
+                hoverText += "STRENGTH";
+
+            } else {
+
+                hoverText += "FINESSE";
+
+            }
+
+            this.defenseButtons.add(new HoverButton(this.screen, this.playerMonster.defenses().get(i).defenseName(),
+                    hoverText, 540, 70 + i * 35, 240, 25, mainColor, accentColor, Color.GRAY));
 
         }
 
