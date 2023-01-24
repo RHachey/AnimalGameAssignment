@@ -86,7 +86,15 @@ public class ForestMap extends WorldMap {
     @Override
     public WildMonster randomMonster(int level) {
 
-        return new Fox(this.screen, level);
+        double random = Math.random();
+
+        if (random < 0.5) {
+
+            return new Fox(this.screen, level);
+
+        }
+
+        return new Turtle(this.screen, level);
 
     }
 }

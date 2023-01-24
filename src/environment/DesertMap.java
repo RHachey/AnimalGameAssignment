@@ -87,7 +87,15 @@ public class DesertMap extends WorldMap {
     @Override
     public WildMonster randomMonster(int level) {
 
-        return new Armadillo(this.screen, level);
+        double random = Math.random();
+
+        if (random < 0.5) {
+
+            return new Armadillo(this.screen, level);
+
+        }
+
+        return new Snake(this.screen, level);
 
     }
 
